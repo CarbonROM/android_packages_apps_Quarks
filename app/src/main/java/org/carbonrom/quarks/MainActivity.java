@@ -77,12 +77,12 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import org.carbonrom.quarks.favorite.Favorite;
 import org.carbonrom.quarks.favorite.FavoriteActivity;
 import org.carbonrom.quarks.favorite.FavoriteDatabaseHandler;
 import org.carbonrom.quarks.history.HistoryActivity;
 import org.carbonrom.quarks.suggestions.SuggestionsAdapter;
 import org.carbonrom.quarks.ui.SearchBarController;
+import org.carbonrom.quarks.ui.UrlBarController;
 import org.carbonrom.quarks.utils.AdBlocker;
 import org.carbonrom.quarks.utils.PrefsUtils;
 import org.carbonrom.quarks.utils.UiUtils;
@@ -245,8 +245,11 @@ public class MainActivity extends WebViewExtActivity implements View.OnTouchList
 
         setupMenu();
 
+        UrlBarController urlBarController = new UrlBarController(autoCompleteTextView,
+                (ImageView) findViewById(R.id.secure));
+
         mWebView = (WebViewExt) findViewById(R.id.web_view);
-        mWebView.init(this, autoCompleteTextView, mLoadingProgress, mIncognito);
+        mWebView.init(this, urlBarController, mLoadingProgress, mIncognito);
         mWebView.setDesktopMode(desktopMode);
         mWebView.loadUrl(url == null ? PrefsUtils.getHomePage(this) : url);
 

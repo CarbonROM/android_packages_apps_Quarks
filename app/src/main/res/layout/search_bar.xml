@@ -69,13 +69,24 @@
                 android:layout_alignParentStart="true"
                 android:padding="8dp"/>
 
+            <ImageButton
+                android:id="@+id/secure"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_toEndOf="@id/incognito"
+                android:layout_alignWithParentIfMissing="true"
+                android:adjustViewBounds="true"
+                android:background="?selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_lock"
+                android:visibility="gone" />
+
             <org.carbonrom.quarks.ui.AutoCompleteTextViewExt
                 android:id="@+id/url_bar"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_alignWithParentIfMissing="true"
                 android:layout_toEndOf="@id/favicon"
-                android:layout_toStartOf="@id/incognito"
+                android:layout_toStartOf="@id/secure"
                 android:background="@null"
                 android:completionThreshold="1"
                 android:dropDownAnchor="@id/cardview"
