@@ -24,10 +24,10 @@ import android.view.View;
 import android.webkit.URLUtil;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
-import android.widget.EditText;
 import android.widget.ProgressBar;
 
 import org.carbonrom.quarks.MainActivity;
+import org.carbonrom.quarks.ui.EditTextExt;
 import org.carbonrom.quarks.utils.PrefsUtils;
 import org.carbonrom.quarks.utils.UrlUtils;
 
@@ -111,7 +111,7 @@ public class WebViewExt extends WebView {
                         URLUtil.guessFileName(url, contentDescription, mimeType)));
     }
 
-    public void init(Context context, EditText editText,
+    public void init(Context context, EditTextExt editText,
                      ProgressBar progressBar, boolean incognito) {
         mIncognito = incognito;
         ChromeClient chromeClient = new ChromeClient(context, incognito);

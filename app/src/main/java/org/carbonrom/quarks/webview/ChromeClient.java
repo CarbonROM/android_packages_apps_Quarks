@@ -25,7 +25,6 @@ import android.webkit.GeolocationPermissions;
 import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
-import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -33,7 +32,7 @@ import org.carbonrom.quarks.MainActivity;
 import org.carbonrom.quarks.R;
 import org.carbonrom.quarks.history.HistoryDatabaseHandler;
 import org.carbonrom.quarks.history.HistoryItem;
-
+import org.carbonrom.quarks.ui.EditTextExt;
 
 class ChromeClient extends WebChromeClient {
 
@@ -41,7 +40,7 @@ class ChromeClient extends WebChromeClient {
     private final HistoryDatabaseHandler mHistoryHandler;
     private final boolean mIncognito;
 
-    private EditText mEditText;
+    private EditTextExt mEditTextExt;
     private ProgressBar mProgressBar;
 
     ChromeClient(Context context, boolean incognito) {
@@ -60,9 +59,17 @@ class ChromeClient extends WebChromeClient {
 
     @Override
     public void onReceivedTitle(WebView view, String title) {
-        mEditText.setText(view.getUrl());
+        String url = view.getUrl();
+        mEditTextExt.setTitle(title);
+        mEditTextExt.setUrl(url);
+        if (url.startsWith("https://")) {
+            mEditTextExt.setText(title);
+        } else {
+            mEditTextExt.setText(url);
+        }
+
         if (!mIncognito) {
-            mHistoryHandler.addItem(new HistoryItem(title, view.getUrl()));
+            mHistoryHandler.addItem(new HistoryItem(title, url));
         }
     }
 
@@ -97,8 +104,8 @@ class ChromeClient extends WebChromeClient {
         }
     }
 
-    void bindEditText(EditText editText) {
-        mEditText = editText;
+    void bindEditText(EditTextExt editText) {
+        mEditTextExt = editText;
     }
 
     void bindProgressBar(ProgressBar progressBar) {
