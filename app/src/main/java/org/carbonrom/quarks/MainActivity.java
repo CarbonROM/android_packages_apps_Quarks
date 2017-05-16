@@ -98,6 +98,8 @@ public class MainActivity extends WebViewExtActivity implements View.OnTouchList
     private static final String STATE_KEY_THEME_COLOR = "theme_color";
     private static final int STORAGE_PERM_REQ = 423;
     private static final int LOCATION_PERM_REQ = 424;
+    private static final int ALWAYS_DEFAULT_TO_INCOGNITO = 1;
+    private static final int EXTERNAL_DEFAULT_TO_INCOGNITO = 2;
 
     public static final String ACTION_URL_RESOLVED = "org.carbonrom.quarks.action.URL_RESOLVED";
 
@@ -186,10 +188,22 @@ public class MainActivity extends WebViewExtActivity implements View.OnTouchList
             mWebView.loadUrl(url);
         });
 
+        // Make sure prefs are set before loading them
+        PreferenceManager.setDefaultValues(this, R.xml.settings, false);
+
         Intent intent = getIntent();
         String url = intent.getDataString();
-        mIncognito = intent.getBooleanExtra(EXTRA_INCOGNITO, false);
         boolean desktopMode = false;
+        switch (PrefsUtils.getIncognitoPolicy(this)) {
+            case ALWAYS_DEFAULT_TO_INCOGNITO:
+                mIncognito = true;
+                break;
+            case EXTERNAL_DEFAULT_TO_INCOGNITO:
+                mIncognito = !Intent.ACTION_MAIN.equals(intent.getAction());
+                break;
+            default:
+                mIncognito = intent.getBooleanExtra(EXTRA_INCOGNITO, false);
+        }
 
         SharedPreferences night_mode = this.getSharedPreferences("night_mode_pref", Context.MODE_PRIVATE);
         nightMode = night_mode.getBoolean("night_mode_pref", false);
@@ -215,8 +229,6 @@ public class MainActivity extends WebViewExtActivity implements View.OnTouchList
             searchIncognito.setColorFilter(textColor);
         }
 
-        // Make sure prefs are set before loading them
-        PreferenceManager.setDefaultValues(this, R.xml.settings, false);
 
         ImageView incognitoIcon = (ImageView) findViewById(R.id.incognito);
         incognitoIcon.setVisibility(mIncognito ? View.VISIBLE : View.GONE);
@@ -443,6 +455,7 @@ public class MainActivity extends WebViewExtActivity implements View.OnTouchList
         if (url != null && !url.isEmpty()) {
             intent.setData(Uri.parse(url));
         }
+        intent.setAction(Intent.ACTION_MAIN);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_DOCUMENT | Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
         intent.putExtra(EXTRA_INCOGNITO, incognito);
         startActivity(intent);
