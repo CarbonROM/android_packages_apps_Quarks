@@ -82,6 +82,8 @@ public class MainActivity extends AppCompatActivity {
     private static final String EXTRA_URL = "extra_url";
     private static final int STORAGE_PERM_REQ = 423;
     private static final int LOCATION_PERM_REQ = 424;
+    private static final int ALWAYS_DEFAULT_TO_INCOGNITO = 1;
+    private static final int EXTERNAL_DEFAULT_TO_INCOGNITO = 2;
 
     private CoordinatorLayout mCoordinator;
     private WebViewExt mWebView;
@@ -126,10 +128,23 @@ public class MainActivity extends AppCompatActivity {
             return false;
         });
 
+        // Make sure prefs are set before loading them
+        PreferenceManager.setDefaultValues(this, R.xml.settings, false);
+
         Intent intent = getIntent();
         String url = intent.getDataString();
-        boolean incognito = intent.getBooleanExtra(EXTRA_INCOGNITO, false);
+        boolean incognito;
         boolean desktopMode = false;
+        switch(PrefsUtils.getIncognitoPolicy(this)) {
+            case ALWAYS_DEFAULT_TO_INCOGNITO:
+                incognito = true;
+                break;
+            case EXTERNAL_DEFAULT_TO_INCOGNITO:
+                incognito = !Intent.ACTION_MAIN.equals(intent.getAction());
+                break;
+            default:
+                incognito = intent.getBooleanExtra(EXTRA_INCOGNITO, false);
+        }
 
         SharedPreferences night_mode = this.getSharedPreferences("night_mode_pref", Context.MODE_PRIVATE);
         nightMode = night_mode.getBoolean("night_mode_pref", false);
@@ -152,8 +167,8 @@ public class MainActivity extends AppCompatActivity {
             searchMenu.setColorFilter(textColor);
         }
 
-        // Make sure prefs are set before loading them
-        PreferenceManager.setDefaultValues(this, R.xml.settings, false);
+        ImageView mIncognitoIcon = (ImageView) findViewById(R.id.incognito);
+        mIncognitoIcon.setVisibility(incognito ? View.VISIBLE : View.GONE);
 
         setupMenu();
         mWebView = (WebViewExt) findViewById(R.id.web_view);
@@ -335,6 +350,7 @@ public class MainActivity extends AppCompatActivity {
         if (url != null && !url.isEmpty()) {
             intent.setData(Uri.parse(url));
         }
+        intent.setAction(Intent.ACTION_MAIN);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_DOCUMENT | Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
         startActivity(intent);
     }
