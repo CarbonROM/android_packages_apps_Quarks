@@ -104,6 +104,8 @@ public class MainActivity extends WebViewExtActivity implements
     private static final String STATE_KEY_THEME_COLOR = "theme_color";
     private static final int STORAGE_PERM_REQ = 423;
     private static final int LOCATION_PERM_REQ = 424;
+    private static final int ALWAYS_DEFAULT_TO_INCOGNITO = 1;
+    private static final int EXTERNAL_DEFAULT_TO_INCOGNITO = 2;
 
     private final BroadcastReceiver mUrlResolvedReceiver = new BroadcastReceiver() {
         @Override
@@ -195,10 +197,22 @@ public class MainActivity extends WebViewExtActivity implements
             mWebView.loadUrl(url);
         });
 
+        // Make sure prefs are set before loading them
+        PreferenceManager.setDefaultValues(this, R.xml.settings, false);
+
         Intent intent = getIntent();
         String url = intent.getDataString();
-        mIncognito = intent.getBooleanExtra(IntentUtils.EXTRA_INCOGNITO, false);
         boolean desktopMode = false;
+        switch (PrefsUtils.getIncognitoPolicy(this)) {
+            case ALWAYS_DEFAULT_TO_INCOGNITO:
+                mIncognito = true;
+                break;
+            case EXTERNAL_DEFAULT_TO_INCOGNITO:
+                mIncognito = !Intent.ACTION_MAIN.equals(intent.getAction());
+                break;
+            default:
+                mIncognito = intent.getBooleanExtra(IntentUtils.EXTRA_INCOGNITO, false);
+        }
 
         // Restore from previous instance
         if (savedInstanceState != null) {
@@ -215,8 +229,6 @@ public class MainActivity extends WebViewExtActivity implements
                     EditorInfo.IME_FLAG_NO_PERSONALIZED_LEARNING);
         }
 
-        // Make sure prefs are set before loading them
-        PreferenceManager.setDefaultValues(this, R.xml.settings, false);
 
         // Listen for local broadcasts
         registerLocalBroadcastListeners();
