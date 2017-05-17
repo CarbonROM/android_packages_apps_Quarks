@@ -170,8 +170,7 @@ public class MainActivity extends AppCompatActivity {
             searchIncognito.setColorFilter(textColor);
         }
 
-        ImageView mIncognitoIcon = (ImageView) findViewById(R.id.incognito);
-        mIncognitoIcon.setVisibility(incognito ? View.VISIBLE : View.GONE);
+        searchIncognito.setVisibility(incognito ? View.VISIBLE : View.GONE);
 
         setupMenu();
         mWebView = (WebViewExt) findViewById(R.id.web_view);
