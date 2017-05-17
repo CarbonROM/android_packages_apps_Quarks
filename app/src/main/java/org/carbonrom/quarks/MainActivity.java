@@ -22,6 +22,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.ColorStateList;
 import android.graphics.Bitmap;
@@ -49,6 +50,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.view.menu.MenuBuilder;
 import android.support.v7.view.menu.MenuPopupHelper;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
@@ -120,6 +122,10 @@ public class MainActivity extends WebViewExtActivity implements View.OnTouchList
     private boolean mHasThemeColorSupport;
     private Drawable mLastActionBarDrawable;
     private int mThemeColor;
+    private CardView searchCard;
+    private AutoCompleteTextView autoCompleteTextView;
+    private ImageView searchMenu;
+    private ImageView searchIncognito;
 
     private String mWaitingDownloadUrl;
 
@@ -130,6 +136,7 @@ public class MainActivity extends WebViewExtActivity implements View.OnTouchList
     private boolean mFingerReleased = false;
     private boolean mGestureOngoing = false;
     private boolean mIncognito;
+    private boolean nightMode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -147,8 +154,7 @@ public class MainActivity extends WebViewExtActivity implements View.OnTouchList
             new Handler().postDelayed(() -> mSwipeRefreshLayout.setRefreshing(false), 1000);
         });
         mLoadingProgress = (ProgressBar) findViewById(R.id.load_progress);
-        AutoCompleteTextView autoCompleteTextView =
-                (AutoCompleteTextView) findViewById(R.id.url_bar);
+        autoCompleteTextView = (AutoCompleteTextView) findViewById(R.id.url_bar);
         autoCompleteTextView.setAdapter(new SuggestionsAdapter(this));
         autoCompleteTextView.setOnEditorActionListener((v, actionId, event) -> {
             if (actionId == EditorInfo.IME_ACTION_SEARCH) {
@@ -185,6 +191,9 @@ public class MainActivity extends WebViewExtActivity implements View.OnTouchList
         mIncognito = intent.getBooleanExtra(EXTRA_INCOGNITO, false);
         boolean desktopMode = false;
 
+        SharedPreferences night_mode = this.getSharedPreferences("night_mode_pref", Context.MODE_PRIVATE);
+        nightMode = night_mode.getBoolean("night_mode_pref", false);
+
         // Restore from previous instance
         if (savedInstanceState != null) {
             mIncognito = savedInstanceState.getBoolean(EXTRA_INCOGNITO, mIncognito);
@@ -193,6 +202,17 @@ public class MainActivity extends WebViewExtActivity implements View.OnTouchList
             }
             desktopMode = savedInstanceState.getBoolean(EXTRA_DESKTOP_MODE, false);
             mThemeColor = savedInstanceState.getInt(STATE_KEY_THEME_COLOR, 0);
+        }
+        searchCard = (CardView) findViewById(R.id.cardview);
+        searchMenu = (ImageView) findViewById(R.id.search_menu);
+        searchIncognito = (ImageView) findViewById(R.id.incognito);
+        if (nightMode) {
+            int cardColor = getColor(R.color.cardview_dark_background);
+            int textColor = getColor(android.R.color.white);
+            searchCard.setCardBackgroundColor(cardColor);
+            autoCompleteTextView.setTextColor(textColor);
+            searchMenu.setColorFilter(textColor);
+            searchIncognito.setColorFilter(textColor);
         }
 
         // Make sure prefs are set before loading them
@@ -339,6 +359,12 @@ public class MainActivity extends WebViewExtActivity implements View.OnTouchList
             desktopMode.setIcon(ContextCompat.getDrawable(this, isDesktop ?
                     R.drawable.ic_mobile : R.drawable.ic_desktop));
 
+            MenuItem nightModeMenu = popupMenu.getMenu().findItem(R.id.night_mode);
+            nightModeMenu.setTitle(getString(nightMode ?
+                    R.string.menu_day_mode : R.string.menu_night_mode));
+            nightModeMenu.setIcon(ContextCompat.getDrawable(this, nightMode ?
+                    R.drawable.ic_day : R.drawable.ic_night));
+
             popupMenu.setOnMenuItemClickListener(item -> {
                 switch (item.getItemId()) {
                     case R.id.menu_new:
@@ -375,6 +401,27 @@ public class MainActivity extends WebViewExtActivity implements View.OnTouchList
                                 R.string.menu_desktop_mode : R.string.menu_mobile_mode));
                         desktopMode.setIcon(ContextCompat.getDrawable(this, isDesktop ?
                                 R.drawable.ic_desktop : R.drawable.ic_mobile));
+                        break;
+                    case R.id.night_mode:
+                        nightMode = !nightMode;
+                        int cardColor = nightMode ?
+                                getColor(R.color.cardview_dark_background) : getColor(R.color.cardview_light_background);
+                        int textColor = nightMode ?
+                                getColor(android.R.color.white) : getColor(android.R.color.black);
+                        searchCard.setCardBackgroundColor(cardColor);
+                        autoCompleteTextView.setTextColor(textColor);
+                        searchMenu.setColorFilter(textColor);
+                        searchIncognito.setColorFilter(textColor);
+                        mWebView.reload();
+                        nightModeMenu.setTitle(getString(nightMode ?
+                                R.string.menu_day_mode : R.string.menu_night_mode));
+                        nightModeMenu.setIcon(ContextCompat.getDrawable(this, nightMode ?
+                                R.drawable.ic_day : R.drawable.ic_night));
+                        // Save choice to preference
+                        SharedPreferences night_mode = this.getSharedPreferences("night_mode_pref", Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = night_mode.edit();
+                        editor.putBoolean("night_mode_pref", nightMode);
+                        editor.apply();
                         break;
                 }
                 return true;
@@ -435,7 +482,7 @@ public class MainActivity extends WebViewExtActivity implements View.OnTouchList
     private void setAsFavorite(String title, String url) {
         FavoriteDatabaseHandler handler = new FavoriteDatabaseHandler(this);
         boolean hasValidIcon = mUrlIcon != null && !mUrlIcon.isRecycled();
-        int color = hasValidIcon ? UiUtils.getColor(mUrlIcon, false) : Color.TRANSPARENT;
+        int color = hasValidIcon ? UiUtils.getColor(mUrlIcon, false, false) : Color.TRANSPARENT;
         if (color == Color.TRANSPARENT) {
             color = ContextCompat.getColor(this, R.color.colorAccent);
         }
@@ -530,7 +577,7 @@ public class MainActivity extends WebViewExtActivity implements View.OnTouchList
 
         mUrlIcon = favicon.copy(favicon.getConfig(), true);
         if (!mHasThemeColorSupport) {
-            applyThemeColor(UiUtils.getColor(favicon, mWebView.isIncognito()));
+            applyThemeColor(UiUtils.getColor(favicon, mWebView.isIncognito(), nightMode));
         }
 
         if (!favicon.isRecycled()) {
@@ -565,6 +612,7 @@ public class MainActivity extends WebViewExtActivity implements View.OnTouchList
         mLoadingProgress.postInvalidate();
 
         getWindow().setStatusBarColor(color);
+        getWindow().setNavigationBarColor(color);
 
         int flags = getWindow().getDecorView().getSystemUiVisibility();
         if (UiUtils.isColorLight(color)) {

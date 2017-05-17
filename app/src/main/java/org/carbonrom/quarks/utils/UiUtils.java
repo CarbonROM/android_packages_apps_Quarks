@@ -45,10 +45,15 @@ public final class UiUtils {
         return hsl[2] > 0.5f;
     }
 
-    public static int getColor(Bitmap bitmap, boolean incognito) {
+    public static int getColor(Bitmap bitmap, boolean incognito, boolean night) {
         Palette palette = Palette.from(bitmap).generate();
         final int fallback = Color.TRANSPARENT;
-        return incognito ? palette.getMutedColor(fallback) : palette.getVibrantColor(fallback);
+        int colorVibrant = night ?
+                palette.getDarkVibrantColor(fallback) : palette.getVibrantColor(fallback);
+        int colorIncognito = night ?
+                palette.getDarkMutedColor(fallback) : palette.getMutedColor(fallback);
+        return incognito ?
+                colorIncognito : colorVibrant;
     }
 
     public static Bitmap getShortcutIcon(Bitmap bitmap, int themeColor) {
