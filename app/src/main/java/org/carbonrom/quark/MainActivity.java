@@ -90,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
     private CardView searchCard;
     private EditTextExt editText;
     private ImageView searchMenu;
+    private ImageView searchIncognito;
 
     private String mWaitingDownloadUrl;
     private String mWaitingDownloadName;
@@ -159,12 +160,14 @@ public class MainActivity extends AppCompatActivity {
         }
         searchCard = (CardView) findViewById(R.id.search_card);
         searchMenu = (ImageView) findViewById(R.id.search_menu);
+        searchIncognito = (ImageView) findViewById(R.id.incognito);
         if (nightMode) {
             int cardColor = getColor(R.color.cardview_dark_background);
             int textColor = getColor(android.R.color.white);
             searchCard.setCardBackgroundColor(cardColor);
             editText.setTextColor(textColor);
             searchMenu.setColorFilter(textColor);
+            searchIncognito.setColorFilter(textColor);
         }
 
         ImageView mIncognitoIcon = (ImageView) findViewById(R.id.incognito);
@@ -319,6 +322,7 @@ public class MainActivity extends AppCompatActivity {
                         searchCard.setCardBackgroundColor(cardColor);
                         editText.setTextColor(textColor);
                         searchMenu.setColorFilter(textColor);
+                        searchIncognito.setColorFilter(textColor);
                         mWebView.reload();
                         nightModeMenu.setTitle(getString(nightMode ?
                                 R.string.menu_day_mode : R.string.menu_night_mode));
