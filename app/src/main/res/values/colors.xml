@@ -14,11 +14,11 @@
      limitations under the License.
 -->
 <resources>
-    <color name="colorPrimary">#fafafa</color>
-    <color name="colorPrimaryDark">#E0E0E0</color>
-    <color name="colorAccent">#4073ff</color>
+    <color name="colorPrimary">#212121</color>
+    <color name="colorPrimaryDark">#212121</color>
+    <color name="colorAccent">#01579b</color>
 
-    <color name="colorIncognito">#000b4d</color>
+    <color name="colorIncognito">#00141d</color>
     <color name="colorDelete">#F44336</color>
 
     <color name="menu_icon">#333333</color>
