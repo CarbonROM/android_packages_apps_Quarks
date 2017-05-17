@@ -297,8 +297,10 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.night_mode:
                         nightMode = !nightMode;
-                        int cardColor = getColor(R.color.cardview_dark_background);
-                        int textColor = getColor(android.R.color.white);
+                        int cardColor = nightMode ?
+                                getColor(R.color.cardview_dark_background) : getColor(R.color.cardview_light_background);
+                        int textColor = nightMode ?
+                                getColor(android.R.color.white) : getColor(android.R.color.black);
                         searchCard.setCardBackgroundColor(cardColor);
                         editText.setTextColor(textColor);
                         searchMenu.setColorFilter(textColor);
