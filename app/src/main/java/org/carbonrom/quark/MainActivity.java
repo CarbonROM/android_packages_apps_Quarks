@@ -370,6 +370,7 @@ public class MainActivity extends AppCompatActivity {
                 FileOutputStream out = new FileOutputStream(file);
                 Bitmap bm = mWebView.getSnap();
                 if (bm == null) {
+                    out.close();
                     return;
                 }
                 bm.compress(Bitmap.CompressFormat.PNG, 70, out);
