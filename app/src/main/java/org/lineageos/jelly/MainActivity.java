@@ -21,6 +21,7 @@ import android.app.ActivityManager;
 import android.app.DownloadManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -78,7 +79,6 @@ public class MainActivity extends AppCompatActivity {
     private static final String PROVIDER = "org.lineageos.jelly.fileprovider";
     private static final String EXTRA_INCOGNITO = "extra_incognito";
     private static final String EXTRA_DESKTOP_MODE = "extra_desktop_mode";
-    private static final String EXTRA_NIGHT_MODE = "extra_night_mode";
     private static final String EXTRA_URL = "extra_url";
     private static final int STORAGE_PERM_REQ = 423;
     private static final int LOCATION_PERM_REQ = 424;
@@ -131,6 +131,9 @@ public class MainActivity extends AppCompatActivity {
         boolean incognito = intent.getBooleanExtra(EXTRA_INCOGNITO, false);
         boolean desktopMode = false;
 
+        SharedPreferences night_mode = this.getSharedPreferences("night_mode_pref", Context.MODE_PRIVATE);
+        nightMode = night_mode.getBoolean("night_mode_pref", false);
+
         // Restore from previous instance
         if (savedInstanceState != null) {
             incognito = savedInstanceState.getBoolean(EXTRA_INCOGNITO, incognito);
@@ -138,7 +141,6 @@ public class MainActivity extends AppCompatActivity {
                 url = savedInstanceState.getString(EXTRA_URL, null);
             }
             desktopMode = savedInstanceState.getBoolean(EXTRA_DESKTOP_MODE, false);
-            nightMode = savedInstanceState.getBoolean(EXTRA_NIGHT_MODE, false);
         }
         searchCard = (CardView) findViewById(R.id.search_card);
         searchMenu = (ImageView) findViewById(R.id.search_menu);
@@ -229,7 +231,6 @@ public class MainActivity extends AppCompatActivity {
         outState.putString(EXTRA_URL, mWebView.getUrl());
         outState.putBoolean(EXTRA_INCOGNITO, mWebView.isIncognito());
         outState.putBoolean(EXTRA_DESKTOP_MODE, mWebView.isDesktopMode());
-        outState.putBoolean(EXTRA_NIGHT_MODE, nightMode);
     }
 
     private void setupMenu() {
@@ -306,6 +307,11 @@ public class MainActivity extends AppCompatActivity {
                                 R.string.menu_day_mode : R.string.menu_night_mode));
                         nightModeMenu.setIcon(ContextCompat.getDrawable(this, nightMode ?
                                 R.drawable.ic_day : R.drawable.ic_night));
+                        // Save choice to preference
+                        SharedPreferences night_mode = this.getSharedPreferences("night_mode_pref", Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = night_mode.edit();
+                        editor.putBoolean("night_mode_pref", nightMode);
+                        editor.apply();
                         break;
                 }
                 return true;

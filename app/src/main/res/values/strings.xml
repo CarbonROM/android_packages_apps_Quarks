@@ -150,4 +150,5 @@
 
     <string translatable="false" name="default_search_engine">https://duckduckgo.com/?q={searchTerms}</string>
     <string translatable="false" name="default_home_page">https://duckduckgo.com</string>
+    <string translatable="false" name="night_mode_pref">false</string>
 </resources>
