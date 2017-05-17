@@ -365,7 +365,7 @@ public class MainActivity extends AppCompatActivity {
         FavoriteDatabaseHandler handler = new FavoriteDatabaseHandler(this);
         boolean hasValidIcon = mUrlIcon != null && !mUrlIcon.isRecycled();
         handler.addItem(new Favorite(title, url, hasValidIcon ?
-                UiUtils.getColor(this, mUrlIcon, false) :
+                UiUtils.getColor(this, mUrlIcon, false, false) :
                 ContextCompat.getColor(this, R.color.colorAccent)));
         Snackbar.make(mCoordinator, getString(R.string.favorite_added),
                 Snackbar.LENGTH_LONG).show();
@@ -447,10 +447,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         mUrlIcon = favicon.copy(favicon.getConfig(), true);
-        int urlColor = UiUtils.getColor(this, favicon, incognito);
-        int color = urlColor;
-        if (nightMode)
-            color = darkenColor(urlColor, 0.75f);
+        int color = UiUtils.getColor(this, favicon, incognito, nightMode);
         actionBar.setBackgroundDrawable(new ColorDrawable(color));
         getWindow().setStatusBarColor(color);
         getWindow().setNavigationBarColor(color);
@@ -469,17 +466,6 @@ public class MainActivity extends AppCompatActivity {
         if (!favicon.isRecycled()) {
             favicon.recycle();
         }
-    }
-
-    public static int darkenColor(int color, float factor) {
-        int a = Color.alpha(color);
-        int r = Math.round(Color.red(color) * factor);
-        int g = Math.round(Color.green(color) * factor);
-        int b = Math.round(Color.blue(color) * factor);
-        return Color.argb(a,
-                Math.min(r,255),
-                Math.min(g,255),
-                Math.min(b,255));
     }
 
     private void addShortcut() {

@@ -46,19 +46,23 @@ public final class UiUtils {
         return hsl[2] > 0.5f;
     }
 
-    public static int getColor(Context context, Bitmap bitmap, boolean incognito) {
+    public static int getColor(Context context, Bitmap bitmap, boolean incognito, boolean night) {
         Palette palette = Palette.from(bitmap).generate();
         int primary = ContextCompat.getColor(context, R.color.colorPrimary);
         int alternative = ContextCompat.getColor(context, R.color.colorIncognito);
+        int colorVibrant = night ?
+                palette.getDarkVibrantColor(primary) : palette.getVibrantColor(primary);
+        int colorIncognito = night ?
+                palette.getDarkMutedColor(alternative) : palette.getMutedColor(alternative);
         return incognito ?
-                palette.getMutedColor(alternative) : palette.getVibrantColor(primary);
+                colorIncognito : colorVibrant;
     }
 
     public static Bitmap getShortcutIcon(Context context, Bitmap bitmap) {
         Bitmap out = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getWidth(),
                 Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(out);
-        int color = getColor(context, bitmap, false);
+        int color = getColor(context, bitmap, false, false);
         Paint paint = new Paint();
         Rect rect = new Rect(0, 0, bitmap.getWidth(), bitmap.getWidth());
         float radius = bitmap.getWidth() / 2;
