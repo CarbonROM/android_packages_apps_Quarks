@@ -43,6 +43,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.view.menu.MenuBuilder;
 import android.support.v7.view.menu.MenuPopupHelper;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -55,6 +56,7 @@ import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.webkit.CookieManager;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 
 import org.lineageos.jelly.favorite.Favorite;
@@ -83,6 +85,9 @@ public class MainActivity extends AppCompatActivity {
 
     private CoordinatorLayout mCoordinator;
     private WebViewExt mWebView;
+    private CardView searchCard;
+    private EditTextExt editText;
+    private ImageView searchMenu;
 
     private String mWaitingDownloadUrl;
     private String mWaitingDownloadName;
@@ -107,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
             new Handler().postDelayed(() -> refreshLayout.setRefreshing(false), 1000);
         });
         ProgressBar progressBar = (ProgressBar) findViewById(R.id.load_progress);
-        EditTextExt editText = (EditTextExt) findViewById(R.id.url_bar);
+        editText = (EditTextExt) findViewById(R.id.url_bar);
         editText.setOnEditorActionListener((v, actionId, event) -> {
             if (actionId == EditorInfo.IME_ACTION_SEARCH) {
                 InputMethodManager manager = (InputMethodManager)
@@ -134,6 +139,15 @@ public class MainActivity extends AppCompatActivity {
             }
             desktopMode = savedInstanceState.getBoolean(EXTRA_DESKTOP_MODE, false);
             nightMode = savedInstanceState.getBoolean(EXTRA_NIGHT_MODE, false);
+        }
+        searchCard = (CardView) findViewById(R.id.search_card);
+        searchMenu = (ImageView) findViewById(R.id.search_menu);
+        if (nightMode) {
+            int cardColor = getColor(R.color.cardview_dark_background);
+            int textColor = getColor(android.R.color.white);
+            searchCard.setCardBackgroundColor(cardColor);
+            editText.setTextColor(textColor);
+            searchMenu.setColorFilter(textColor);
         }
 
         // Make sure prefs are set before loading them
@@ -279,8 +293,14 @@ public class MainActivity extends AppCompatActivity {
                                 R.string.menu_desktop_mode : R.string.menu_mobile_mode));
                         desktopMode.setIcon(ContextCompat.getDrawable(this, isDesktop ?
                                 R.drawable.ic_desktop : R.drawable.ic_mobile));
+                        break;
                     case R.id.night_mode:
                         nightMode = !nightMode;
+                        int cardColor = getColor(R.color.cardview_dark_background);
+                        int textColor = getColor(android.R.color.white);
+                        searchCard.setCardBackgroundColor(cardColor);
+                        editText.setTextColor(textColor);
+                        searchMenu.setColorFilter(textColor);
                         mWebView.reload();
                         nightModeMenu.setTitle(getString(nightMode ?
                                 R.string.menu_day_mode : R.string.menu_night_mode));
