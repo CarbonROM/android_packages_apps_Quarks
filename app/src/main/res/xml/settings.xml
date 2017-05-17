@@ -42,7 +42,7 @@
         android:title="@string/pref_screenshot_snap_title" />
 
     <SwitchPreference
-        android:defaultValue="0"
+        android:defaultValue="1"
         android:key="key_reach_mode"
         android:summary="@string/pref_reach_mode_summary"
         android:title="@string/pref_reach_mode_title" />
