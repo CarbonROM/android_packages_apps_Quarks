@@ -148,7 +148,7 @@
     <!-- No activity found to open the given url error -->
     <string name="error_no_activity_found">No app can handle this link</string>
 
-    <string translatable="false" name="default_search_engine">https://duckduckgo.com/?q={searchTerms}</string>
-    <string translatable="false" name="default_home_page">https://duckduckgo.com</string>
+    <string translatable="false" name="default_search_engine">https://www.startpage.com/do/dsearch?query={searchTerms}</string>
+    <string translatable="false" name="default_home_page">https://startpage.com</string>
     <string translatable="false" name="night_mode_pref">false</string>
 </resources>
