@@ -24,6 +24,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -75,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String PROVIDER = "org.lineageos.jelly.fileprovider";
     private static final String EXTRA_INCOGNITO = "extra_incognito";
     private static final String EXTRA_DESKTOP_MODE = "extra_desktop_mode";
+    private static final String EXTRA_NIGHT_MODE = "extra_night_mode";
     private static final String EXTRA_URL = "extra_url";
     private static final int STORAGE_PERM_REQ = 423;
     private static final int LOCATION_PERM_REQ = 424;
@@ -86,6 +88,8 @@ public class MainActivity extends AppCompatActivity {
     private String mWaitingDownloadName;
 
     private Bitmap mUrlIcon;
+
+    private boolean nightMode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -129,6 +133,7 @@ public class MainActivity extends AppCompatActivity {
                 url = savedInstanceState.getString(EXTRA_URL, null);
             }
             desktopMode = savedInstanceState.getBoolean(EXTRA_DESKTOP_MODE, false);
+            nightMode = savedInstanceState.getBoolean(EXTRA_NIGHT_MODE, false);
         }
 
         // Make sure prefs are set before loading them
@@ -210,6 +215,7 @@ public class MainActivity extends AppCompatActivity {
         outState.putString(EXTRA_URL, mWebView.getUrl());
         outState.putBoolean(EXTRA_INCOGNITO, mWebView.isIncognito());
         outState.putBoolean(EXTRA_DESKTOP_MODE, mWebView.isDesktopMode());
+        outState.putBoolean(EXTRA_NIGHT_MODE, nightMode);
     }
 
     private void setupMenu() {
@@ -228,6 +234,12 @@ public class MainActivity extends AppCompatActivity {
                     R.string.menu_mobile_mode : R.string.menu_desktop_mode));
             desktopMode.setIcon(ContextCompat.getDrawable(this, isDesktop ?
                     R.drawable.ic_mobile : R.drawable.ic_desktop));
+
+            MenuItem nightModeMenu = popupMenu.getMenu().findItem(R.id.night_mode);
+            nightModeMenu.setTitle(getString(nightMode ?
+                    R.string.menu_day_mode : R.string.menu_night_mode));
+            nightModeMenu.setIcon(ContextCompat.getDrawable(this, nightMode ?
+                    R.drawable.ic_day : R.drawable.ic_night));
 
             popupMenu.setOnMenuItemClickListener(item -> {
                 switch (item.getItemId()) {
@@ -267,6 +279,13 @@ public class MainActivity extends AppCompatActivity {
                                 R.string.menu_desktop_mode : R.string.menu_mobile_mode));
                         desktopMode.setIcon(ContextCompat.getDrawable(this, isDesktop ?
                                 R.drawable.ic_desktop : R.drawable.ic_mobile));
+                    case R.id.night_mode:
+                        nightMode = !nightMode;
+                        mWebView.reload();
+                        nightModeMenu.setTitle(getString(nightMode ?
+                                R.string.menu_day_mode : R.string.menu_night_mode));
+                        nightModeMenu.setIcon(ContextCompat.getDrawable(this, nightMode ?
+                                R.drawable.ic_day : R.drawable.ic_night));
                         break;
                 }
                 return true;
@@ -408,9 +427,13 @@ public class MainActivity extends AppCompatActivity {
         }
 
         mUrlIcon = favicon.copy(favicon.getConfig(), true);
-        int color = UiUtils.getColor(this, favicon, incognito);
+        int urlColor = UiUtils.getColor(this, favicon, incognito);
+        int color = urlColor;
+        if (nightMode)
+            color = darkenColor(urlColor, 0.75f);
         actionBar.setBackgroundDrawable(new ColorDrawable(color));
         getWindow().setStatusBarColor(color);
+        getWindow().setNavigationBarColor(color);
 
         int flags = getWindow().getDecorView().getSystemUiVisibility();
         if (UiUtils.isColorLight(color)) {
@@ -426,6 +449,17 @@ public class MainActivity extends AppCompatActivity {
         if (!favicon.isRecycled()) {
             favicon.recycle();
         }
+    }
+
+    public static int darkenColor(int color, float factor) {
+        int a = Color.alpha(color);
+        int r = Math.round(Color.red(color) * factor);
+        int g = Math.round(Color.green(color) * factor);
+        int b = Math.round(Color.blue(color) * factor);
+        return Color.argb(a,
+                Math.min(r,255),
+                Math.min(g,255),
+                Math.min(b,255));
     }
 
     private void addShortcut() {
