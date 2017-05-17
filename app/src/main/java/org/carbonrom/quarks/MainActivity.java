@@ -229,9 +229,7 @@ public class MainActivity extends WebViewExtActivity implements View.OnTouchList
             searchIncognito.setColorFilter(textColor);
         }
 
-
-        ImageView incognitoIcon = (ImageView) findViewById(R.id.incognito);
-        incognitoIcon.setVisibility(mIncognito ? View.VISIBLE : View.GONE);
+        searchIncognito.setVisibility(mIncognito ? View.VISIBLE : View.GONE);
 
         setupMenu();
 
