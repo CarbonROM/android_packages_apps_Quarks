@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.lineageos.jelly.history;
+package org.carbonrom.quark.history;
 
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
@@ -30,8 +30,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import org.lineageos.jelly.R;
-import org.lineageos.jelly.utils.UiUtils;
+import org.carbonrom.quark.R;
+import org.carbonrom.quark.utils.UiUtils;
 
 import java.util.ArrayList;
 import java.util.Collections;

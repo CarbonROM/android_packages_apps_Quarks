@@ -41,7 +41,7 @@ LOCAL_STATIC_JAVA_LIBRARIES += \
     android-support-v7-recyclerview \
     android-support-annotations
 
-LOCAL_PACKAGE_NAME := Jelly
+LOCAL_PACKAGE_NAME := Quark
 
 LOCAL_PROGUARD_FLAG_FILES := ../../proguard-rules.pro
 

@@ -13,14 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.lineageos.jelly.history;
+package org.carbonrom.quark.history;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
-import org.lineageos.jelly.R;
+import org.carbonrom.quark.R;
 
 import java.util.List;
 

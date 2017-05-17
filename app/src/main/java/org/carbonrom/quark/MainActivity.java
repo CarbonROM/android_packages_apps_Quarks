@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.lineageos.jelly;
+package org.carbonrom.quark;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
@@ -59,14 +59,15 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 
-import org.lineageos.jelly.favorite.Favorite;
-import org.lineageos.jelly.favorite.FavoriteActivity;
-import org.lineageos.jelly.favorite.FavoriteDatabaseHandler;
-import org.lineageos.jelly.history.HistoryActivity;
-import org.lineageos.jelly.ui.EditTextExt;
-import org.lineageos.jelly.utils.PrefsUtils;
-import org.lineageos.jelly.utils.UiUtils;
-import org.lineageos.jelly.webview.WebViewExt;
+import org.carbonrom.quark.R;
+import org.carbonrom.quark.favorite.Favorite;
+import org.carbonrom.quark.favorite.FavoriteActivity;
+import org.carbonrom.quark.favorite.FavoriteDatabaseHandler;
+import org.carbonrom.quark.history.HistoryActivity;
+import org.carbonrom.quark.ui.EditTextExt;
+import org.carbonrom.quark.utils.PrefsUtils;
+import org.carbonrom.quark.utils.UiUtils;
+import org.carbonrom.quark.webview.WebViewExt;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -75,7 +76,7 @@ import java.io.IOException;
 public class MainActivity extends AppCompatActivity {
     public static final int FILE_CHOOSER_REQ = 421;
     private static final String TAG = MainActivity.class.getSimpleName();
-    private static final String PROVIDER = "org.lineageos.jelly.fileprovider";
+    private static final String PROVIDER = "org.carbonrom.quark.fileprovider";
     private static final String EXTRA_INCOGNITO = "extra_incognito";
     private static final String EXTRA_DESKTOP_MODE = "extra_desktop_mode";
     private static final String EXTRA_URL = "extra_url";

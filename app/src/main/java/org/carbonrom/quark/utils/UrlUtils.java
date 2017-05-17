@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.lineageos.jelly.utils;
+package org.carbonrom.quark.utils;
 
 import android.util.Patterns;
 import android.webkit.URLUtil;

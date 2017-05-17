@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.lineageos.jelly.history;
+package org.carbonrom.quark.history;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -24,7 +24,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.View;
 
-import org.lineageos.jelly.R;
+import org.carbonrom.quark.R;
 
 class HistoryCallBack extends ItemTouchHelper.SimpleCallback {
 

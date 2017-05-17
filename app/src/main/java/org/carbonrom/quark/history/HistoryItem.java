@@ -13,25 +13,23 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.lineageos.jelly.favorite;
+package org.carbonrom.quark.history;
 
-public class Favorite {
+public class HistoryItem {
+
+    private final String title;
+    private final String url;
     private long id = -1;
-    private String title;
-    private String url;
-    private final int color;
 
-    public Favorite(String title, String url, int color) {
+    public HistoryItem(String title, String url) {
         this.title = title;
         this.url = url;
-        this.color = color;
     }
 
-    Favorite(long id, String title, String url, int color) {
+    HistoryItem(long id, String title, String url) {
         this.id = id;
         this.title = title;
         this.url = url;
-        this.color = color;
     }
 
     public long getId() {
@@ -46,19 +44,7 @@ public class Favorite {
         return title;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
     String getUrl() {
         return url;
-    }
-
-    void setUrl(String url) {
-        this.url = url;
-    }
-
-    public int getColor() {
-        return color;
     }
 }

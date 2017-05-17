@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.lineageos.jelly.favorite;
+package org.carbonrom.quark.history;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -24,27 +24,26 @@ import android.database.sqlite.SQLiteOpenHelper;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FavoriteDatabaseHandler extends SQLiteOpenHelper {
+public class HistoryDatabaseHandler extends SQLiteOpenHelper {
+
     private static final int DB_VERSION = 1;
-    private static final String DB_NAME = "FavoriteDatabase";
-    private static final String DB_TABLE_FAVORITES = "favorites";
+    private static final String DB_NAME = "HistoryDatabase";
+    private static final String DB_TABLE_HISTORY = "history";
     private static final String KEY_ID = "id";
     private static final String KEY_TITLE = "title";
     private static final String KEY_URL = "url";
-    private static final String KEY_COLOR = "color";
 
 
-    public FavoriteDatabaseHandler(Context context) {
+    public HistoryDatabaseHandler(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE " + DB_TABLE_FAVORITES + " (" +
+        db.execSQL("CREATE TABLE " + DB_TABLE_HISTORY + " (" +
                 KEY_ID + " INTEGER PRIMARY KEY, " +
                 KEY_TITLE + " TEXT, " +
-                KEY_URL + " TEXT, " +
-                KEY_COLOR + " INTEGER)");
+                KEY_URL + " TEXT)");
     }
 
     @Override
@@ -52,7 +51,7 @@ public class FavoriteDatabaseHandler extends SQLiteOpenHelper {
         // Update this when db table will be changed
     }
 
-    public void addItem(Favorite item) {
+    public void addItem(HistoryItem item) {
         if (item.getId() == -1) {
             item.setId(System.currentTimeMillis());
         }
@@ -61,45 +60,37 @@ public class FavoriteDatabaseHandler extends SQLiteOpenHelper {
         values.put(KEY_ID, item.getId());
         values.put(KEY_TITLE, item.getTitle());
         values.put(KEY_URL, item.getUrl());
-        values.put(KEY_COLOR, item.getColor());
 
         SQLiteDatabase db = getWritableDatabase();
-        db.insert(DB_TABLE_FAVORITES, null, values);
+        db.insert(DB_TABLE_HISTORY, null, values);
         db.close();
-    }
-
-    void updateItem(Favorite item) {
-        SQLiteDatabase db = getWritableDatabase();
-
-        ContentValues values = new ContentValues();
-        values.put(KEY_TITLE, item.getTitle());
-        values.put(KEY_URL, item.getUrl());
-        values.put(KEY_COLOR, item.getColor());
-
-        db.update(DB_TABLE_FAVORITES, values, KEY_ID + "=?",
-                new String[]{String.valueOf(item.getId())});
     }
 
     void deleteItem(long id) {
         SQLiteDatabase db = getWritableDatabase();
-        db.delete(DB_TABLE_FAVORITES, KEY_ID + "=?", new String[]{String.valueOf(id)});
+        db.delete(DB_TABLE_HISTORY, KEY_ID + "=?", new String[]{String.valueOf(id)});
         db.close();
     }
 
-    List<Favorite> getAllItems() {
-        List<Favorite> list = new ArrayList<>();
+    List<HistoryItem> getAllItems() {
+        List<HistoryItem> list = new ArrayList<>();
         SQLiteDatabase db = getWritableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM " + DB_TABLE_FAVORITES, null);
+        Cursor cursor = db.rawQuery("SELECT * FROM " + DB_TABLE_HISTORY, null);
 
         if (cursor.moveToFirst()) {
             do {
-                list.add(new Favorite(Long.parseLong(cursor.getString(0)),
-                        cursor.getString(1), cursor.getString(2),
-                        Integer.parseInt(cursor.getString(3))));
+                list.add(new HistoryItem(Long.parseLong(cursor.getString(0)),
+                        cursor.getString(1), cursor.getString(2)));
             } while (cursor.moveToNext());
         }
         cursor.close();
         db.close();
         return list;
+    }
+
+    void deleteAll() {
+        SQLiteDatabase db = getWritableDatabase();
+        db.delete(DB_TABLE_HISTORY, KEY_ID + ">=?", new String[]{"0"});
+        db.close();
     }
 }

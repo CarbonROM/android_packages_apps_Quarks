@@ -25,7 +25,7 @@
         android:background="?colorPrimary" />
 
     <fragment
-        android:name="org.lineageos.jelly.SettingsActivity$MyPreferenceFragment"
+        android:name="org.carbonrom.quark.SettingsActivity$MyPreferenceFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/toolbar"

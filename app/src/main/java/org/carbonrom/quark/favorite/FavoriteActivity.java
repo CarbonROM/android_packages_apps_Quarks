@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.lineageos.jelly.favorite;
+package org.carbonrom.quark.favorite;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -29,8 +29,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 
-import org.lineageos.jelly.R;
-import org.lineageos.jelly.utils.UiUtils;
+import org.carbonrom.quark.R;
+import org.carbonrom.quark.utils.UiUtils;
 
 import java.util.ArrayList;
 import java.util.Collections;

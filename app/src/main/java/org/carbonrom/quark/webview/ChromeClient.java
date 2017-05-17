@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.lineageos.jelly.webview;
+package org.carbonrom.quark.webview;
 
 import android.content.ActivityNotFoundException;
 import android.content.Context;
@@ -29,10 +29,10 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import org.lineageos.jelly.MainActivity;
-import org.lineageos.jelly.R;
-import org.lineageos.jelly.history.HistoryDatabaseHandler;
-import org.lineageos.jelly.history.HistoryItem;
+import org.carbonrom.quark.MainActivity;
+import org.carbonrom.quark.R;
+import org.carbonrom.quark.history.HistoryDatabaseHandler;
+import org.carbonrom.quark.history.HistoryItem;
 
 
 class ChromeClient extends WebChromeClient {

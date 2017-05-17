@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.lineageos.jelly.webview;
+package org.carbonrom.quark.webview;
 
 import android.content.ActivityNotFoundException;
 import android.content.Context;
@@ -23,7 +23,7 @@ import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-import org.lineageos.jelly.R;
+import org.carbonrom.quark.R;
 
 class WebClient extends WebViewClient {
 

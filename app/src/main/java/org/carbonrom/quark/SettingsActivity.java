@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.lineageos.jelly;
+package org.carbonrom.quark;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -30,7 +30,8 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import org.lineageos.jelly.utils.PrefsUtils;
+import org.carbonrom.quark.R;
+import org.carbonrom.quark.utils.PrefsUtils;
 
 // "noSuchMethodError" is thrown if lambda is used in this class (wtf)
 @SuppressWarnings("Convert2Lambda")

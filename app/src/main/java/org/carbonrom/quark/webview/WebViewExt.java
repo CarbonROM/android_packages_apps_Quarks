@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.lineageos.jelly.webview;
+package org.carbonrom.quark.webview;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -27,9 +27,9 @@ import android.webkit.WebView;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 
-import org.lineageos.jelly.MainActivity;
-import org.lineageos.jelly.utils.PrefsUtils;
-import org.lineageos.jelly.utils.UrlUtils;
+import org.carbonrom.quark.MainActivity;
+import org.carbonrom.quark.utils.PrefsUtils;
+import org.carbonrom.quark.utils.UrlUtils;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
