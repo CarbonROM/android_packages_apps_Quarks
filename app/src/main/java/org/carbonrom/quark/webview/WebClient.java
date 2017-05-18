@@ -20,12 +20,20 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.design.widget.Snackbar;
 import android.webkit.WebResourceRequest;
+import android.webkit.WebResourceResponse;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import org.carbonrom.quark.R;
+import org.carbonrom.quark.utils.AdBlocker;
+import org.carbonrom.quark.utils.PrefsUtils;
+
+import java.util.HashMap;
+import java.util.Map;
 
 class WebClient extends WebViewClient {
+
+    private Map<String, Boolean> loadedUrls = new HashMap<>();
 
     WebClient() {
         super();
@@ -50,4 +58,19 @@ class WebClient extends WebViewClient {
         return false;
     }
 
+    @Override
+    public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
+        boolean ad;
+        if (!PrefsUtils.getAdBlocker(view.getContext()))
+            return super.shouldInterceptRequest(view, request);
+        String url = request.getUrl().toString();
+        if (!loadedUrls.containsKey(url)) {
+            ad = AdBlocker.isAd(url);
+            loadedUrls.put(url, ad);
+        } else {
+            ad = loadedUrls.get(url);
+        }
+        return ad ? AdBlocker.createEmptyResource() :
+                super.shouldInterceptRequest(view, request);
+    }
 }

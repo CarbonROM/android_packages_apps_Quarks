@@ -30,6 +30,7 @@ public final class PrefsUtils {
     private static final String KEY_LOCATION = "key_location";
     private static final String KEY_COOKIE = "key_cookie";
     private static final String KEY_INCOGNITO_POLICY = "key_incognito_policy";
+    private static final String KEY_ADBLOCKER = "key_adblocker";
 
     private PrefsUtils() {
     }
@@ -73,6 +74,11 @@ public final class PrefsUtils {
     public static int getIncognitoPolicy(Context context)  {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         return Integer.parseInt(prefs.getString(KEY_INCOGNITO_POLICY, "0"));
+    }
+
+    public static boolean getAdBlocker(Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        return prefs.getBoolean(KEY_ADBLOCKER, true);
     }
 
     public static void setHomePage(Context context, String value) {

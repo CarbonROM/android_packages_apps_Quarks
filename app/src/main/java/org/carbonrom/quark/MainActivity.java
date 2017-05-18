@@ -59,12 +59,12 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 
-import org.carbonrom.quark.R;
 import org.carbonrom.quark.favorite.Favorite;
 import org.carbonrom.quark.favorite.FavoriteActivity;
 import org.carbonrom.quark.favorite.FavoriteDatabaseHandler;
 import org.carbonrom.quark.history.HistoryActivity;
 import org.carbonrom.quark.ui.EditTextExt;
+import org.carbonrom.quark.utils.AdBlocker;
 import org.carbonrom.quark.utils.PrefsUtils;
 import org.carbonrom.quark.utils.UiUtils;
 import org.carbonrom.quark.webview.WebViewExt;
@@ -177,6 +177,7 @@ public class MainActivity extends AppCompatActivity {
         mWebView.init(this, editText, progressBar, incognito);
         mWebView.setDesktopMode(desktopMode);
         mWebView.loadUrl(url == null ? PrefsUtils.getHomePage(this) : url);
+        AdBlocker.init(this);
     }
 
     @Override

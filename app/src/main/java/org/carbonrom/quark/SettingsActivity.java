@@ -30,7 +30,6 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import org.carbonrom.quark.R;
 import org.carbonrom.quark.utils.PrefsUtils;
 
 // "noSuchMethodError" is thrown if lambda is used in this class (wtf)
