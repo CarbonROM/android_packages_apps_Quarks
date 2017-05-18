@@ -64,6 +64,7 @@ import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.webkit.CookieManager;
@@ -628,6 +629,10 @@ public class MainActivity extends WebViewExtActivity implements
                 actionBar.setBackgroundDrawable(newDrawable);
             }
             mLastActionBarDrawable = newDrawable;
+        Window window = getWindow();
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        window.setStatusBarColor(color);
+        window.setNavigationBarColor(color);
         }
 
         int progressColor = hasValidColor
