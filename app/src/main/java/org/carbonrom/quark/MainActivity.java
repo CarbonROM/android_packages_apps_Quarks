@@ -51,6 +51,7 @@ import android.view.ContextThemeWrapper;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
@@ -478,8 +479,10 @@ public class MainActivity extends AppCompatActivity {
         mUrlIcon = favicon.copy(favicon.getConfig(), true);
         int color = UiUtils.getColor(this, favicon, incognito, nightMode);
         actionBar.setBackgroundDrawable(new ColorDrawable(color));
-        getWindow().setStatusBarColor(color);
-        getWindow().setNavigationBarColor(color);
+        Window window = getWindow();
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        window.setStatusBarColor(color);
+        window.setNavigationBarColor(color);
 
         int flags = getWindow().getDecorView().getSystemUiVisibility();
         if (UiUtils.isColorLight(color)) {
