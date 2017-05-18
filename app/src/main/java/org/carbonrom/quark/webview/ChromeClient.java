@@ -69,6 +69,7 @@ class ChromeClient extends WebChromeClient {
     @Override
     public void onReceivedIcon(WebView view, Bitmap icon) {
         ((MainActivity) mContext).setColor(icon, mIncognito);
+        ((MainActivity) mContext).setFavicon();
     }
 
     @Override

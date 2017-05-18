@@ -63,11 +63,18 @@
                 android:alpha="0.40"
                 android:src="@drawable/ic_incognito" />
 
+            <ImageView
+                android:id="@+id/favicon"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:layout_alignParentStart="true"/>
+
             <org.carbonrom.quark.ui.EditTextExt
                 android:id="@+id/url_bar"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_alignParentStart="true"
+                android:layout_toEndOf="@id/favicon"
                 android:layout_toStartOf="@id/incognito"
                 android:background="@null"
                 android:fadingEdge="vertical"

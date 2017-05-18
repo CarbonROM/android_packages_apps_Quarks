@@ -500,6 +500,16 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public void setFavicon() {
+        ImageView mFavicon = (ImageView) findViewById(R.id.favicon);
+        if (mUrlIcon == null || mUrlIcon.isRecycled()) {
+            mFavicon.setVisibility(View.GONE);
+            return;
+        }
+        mFavicon.setVisibility(View.VISIBLE);
+        mFavicon.setImageBitmap(mUrlIcon);
+    }
+
     private void addShortcut() {
         Intent intent = new Intent(this, MainActivity.class);
         intent.setData(Uri.parse(mWebView.getUrl()));
