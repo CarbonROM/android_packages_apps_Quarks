@@ -117,6 +117,10 @@
     <string name="pref_reach_mode_summary">Relocate interface elements for easier one-hand usage</string>
     <!-- Settings: default to incognito -->
     <string name="pref_incognito_policy">Default to incognito</string>
+    <!-- Settings: adblocker title -->
+    <string name="pref_adblocker_title">Adblocker</string>
+    <!-- Settings: adblocker summary -->
+    <string name="pref_adblocker_summary">Block advertisements while browsing</string>
 
     <!-- History: title -->
     <string name="history_title">History</string>

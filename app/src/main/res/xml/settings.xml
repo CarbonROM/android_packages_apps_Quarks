@@ -57,6 +57,12 @@
 
         <SwitchPreference
             android:defaultValue="1"
+            android:key="key_adblocker"
+            android:summary="@string/pref_adblocker_summary"
+            android:title="@string/pref_adblocker_title" />
+
+        <SwitchPreference
+            android:defaultValue="1"
             android:key="key_javascript"
             android:summary="@string/pref_js_summary"
             android:title="@string/pref_js_title" />

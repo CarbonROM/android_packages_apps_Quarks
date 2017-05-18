@@ -32,6 +32,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.webkit.HttpAuthHandler;
 import android.webkit.WebResourceRequest;
+import android.webkit.WebResourceResponse;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.EditText;
@@ -42,8 +43,13 @@ import org.carbonrom.quarks.IntentFilterCompat;
 import org.carbonrom.quarks.MainActivity;
 import org.carbonrom.quarks.R;
 import org.carbonrom.quarks.ui.UrlBarController;
+import org.carbonrom.quarks.utils.AdBlocker;
 import org.carbonrom.quarks.utils.IntentUtils;
+import org.carbonrom.quarks.utils.PrefsUtils;
 import org.carbonrom.quarks.utils.UrlUtils;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import java.net.URISyntaxException;
 import java.util.ArrayList;
@@ -52,6 +58,7 @@ import java.util.regex.Matcher;
 
 class WebClient extends WebViewClient {
     private UrlBarController mUrlBarController;
+    private Map<String, Boolean> loadedUrls = new HashMap<>();
 
     WebClient(UrlBarController urlBarController) {
         super();
@@ -211,5 +218,21 @@ class WebClient extends WebViewClient {
                 chooserIntents.toArray(new Intent[chooserIntents.size()]));
         chooserIntent.putExtra(Intent.EXTRA_CHOOSER_REFINEMENT_INTENT_SENDER, pi.getIntentSender());
         return chooserIntent;
+    }
+
+    @Override
+    public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
+        boolean ad;
+        if (!PrefsUtils.getAdBlocker(view.getContext()))
+            return super.shouldInterceptRequest(view, request);
+        String url = request.getUrl().toString();
+        if (!loadedUrls.containsKey(url)) {
+            ad = AdBlocker.isAd(url);
+            loadedUrls.put(url, ad);
+        } else {
+            ad = loadedUrls.get(url);
+        }
+        return ad ? AdBlocker.createEmptyResource() :
+                super.shouldInterceptRequest(view, request);
     }
 }

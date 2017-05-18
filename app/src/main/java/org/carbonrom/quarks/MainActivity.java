@@ -85,6 +85,7 @@ import org.carbonrom.quarks.history.HistoryActivity;
 import org.carbonrom.quarks.suggestions.SuggestionsAdapter;
 import org.carbonrom.quarks.ui.SearchBarController;
 import org.carbonrom.quarks.ui.UrlBarController;
+import org.carbonrom.quarks.utils.AdBlocker;
 import org.carbonrom.quarks.utils.IntentUtils;
 import org.carbonrom.quarks.utils.PrefsUtils;
 import org.carbonrom.quarks.utils.TabUtils;
@@ -248,6 +249,8 @@ public class MainActivity extends WebViewExtActivity implements
         mWebView.init(this, urlBarController, mLoadingProgress, mIncognito);
         mWebView.setDesktopMode(desktopMode);
         mWebView.loadUrl(url == null ? PrefsUtils.getHomePage(this) : url);
+
+        AdBlocker.init(this);
 
         mHasThemeColorSupport = WebViewCompat.isThemeColorSupported(mWebView);
 
