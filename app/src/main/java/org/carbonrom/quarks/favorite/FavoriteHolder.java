@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.carbonrom.quark.favorite;
+package org.carbonrom.quarks.favorite;
 
 import android.content.Context;
 import android.content.Intent;
@@ -24,9 +24,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
-import org.carbonrom.quark.MainActivity;
-import org.carbonrom.quark.R;
-import org.carbonrom.quark.utils.UiUtils;
+import org.carbonrom.quarks.MainActivity;
+import org.carbonrom.quarks.R;
+import org.carbonrom.quarks.utils.UiUtils;
 
 class FavoriteHolder extends RecyclerView.ViewHolder {
     private final CardView mCard;

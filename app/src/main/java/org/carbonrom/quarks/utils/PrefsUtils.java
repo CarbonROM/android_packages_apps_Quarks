@@ -13,13 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.carbonrom.quark.utils;
+package org.carbonrom.quarks.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
-import org.carbonrom.quark.R;
+import org.carbonrom.quarks.R;
 
 public final class PrefsUtils {
     private static final String KEY_SEARCH_ENGINE = "key_search_engine";

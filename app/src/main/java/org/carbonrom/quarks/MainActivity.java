@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.carbonrom.quark;
+package org.carbonrom.quarks;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
@@ -60,15 +60,15 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 
-import org.carbonrom.quark.favorite.Favorite;
-import org.carbonrom.quark.favorite.FavoriteActivity;
-import org.carbonrom.quark.favorite.FavoriteDatabaseHandler;
-import org.carbonrom.quark.history.HistoryActivity;
-import org.carbonrom.quark.ui.EditTextExt;
-import org.carbonrom.quark.utils.AdBlocker;
-import org.carbonrom.quark.utils.PrefsUtils;
-import org.carbonrom.quark.utils.UiUtils;
-import org.carbonrom.quark.webview.WebViewExt;
+import org.carbonrom.quarks.favorite.Favorite;
+import org.carbonrom.quarks.favorite.FavoriteActivity;
+import org.carbonrom.quarks.favorite.FavoriteDatabaseHandler;
+import org.carbonrom.quarks.history.HistoryActivity;
+import org.carbonrom.quarks.ui.EditTextExt;
+import org.carbonrom.quarks.utils.AdBlocker;
+import org.carbonrom.quarks.utils.PrefsUtils;
+import org.carbonrom.quarks.utils.UiUtils;
+import org.carbonrom.quarks.webview.WebViewExt;
 
 import java.io.File;
 import java.io.FileOutputStream;

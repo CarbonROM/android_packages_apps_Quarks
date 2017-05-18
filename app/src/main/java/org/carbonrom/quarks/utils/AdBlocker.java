@@ -1,4 +1,4 @@
-package org.carbonrom.quark.utils;
+package org.carbonrom.quarks.utils;
 
 import android.content.Context;
 import android.os.AsyncTask;
@@ -8,7 +8,7 @@ import android.webkit.WebResourceResponse;
 
 import com.squareup.okhttp.HttpUrl;
 
-import org.carbonrom.quark.R;
+import org.carbonrom.quarks.R;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;

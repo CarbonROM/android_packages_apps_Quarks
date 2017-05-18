@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.carbonrom.quark.ui;
+package org.carbonrom.quarks.ui;
 
 import android.content.Context;
 import android.graphics.Canvas;

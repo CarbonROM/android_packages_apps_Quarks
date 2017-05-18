@@ -25,7 +25,7 @@
         android:layout_height="match_parent"
         android:layout_marginBottom="?actionBarSize">
 
-        <org.carbonrom.quark.webview.WebViewExt
+        <org.carbonrom.quarks.webview.WebViewExt
             android:id="@+id/web_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />

@@ -70,7 +70,7 @@
                 android:adjustViewBounds="true"
                 android:layout_alignParentStart="true"/>
 
-            <org.carbonrom.quark.ui.EditTextExt
+            <org.carbonrom.quarks.ui.EditTextExt
                 android:id="@+id/url_bar"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

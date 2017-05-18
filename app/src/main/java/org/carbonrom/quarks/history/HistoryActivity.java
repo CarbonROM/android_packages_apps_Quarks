@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.carbonrom.quark.history;
+package org.carbonrom.quarks.history;
 
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
@@ -30,8 +30,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import org.carbonrom.quark.R;
-import org.carbonrom.quark.utils.UiUtils;
+import org.carbonrom.quarks.R;
+import org.carbonrom.quarks.utils.UiUtils;
 
 import java.util.ArrayList;
 import java.util.Collections;

@@ -13,14 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.carbonrom.quark.favorite;
+package org.carbonrom.quarks.favorite;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
-import org.carbonrom.quark.R;
+import org.carbonrom.quarks.R;
 
 import java.util.List;
 

@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.carbonrom.quark.utils;
+package org.carbonrom.quarks.utils;
 
 import android.util.Patterns;
 import android.webkit.URLUtil;

@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.carbonrom.quark.webview;
+package org.carbonrom.quarks.webview;
 
 import android.content.ActivityNotFoundException;
 import android.content.Context;
@@ -24,9 +24,9 @@ import android.webkit.WebResourceResponse;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-import org.carbonrom.quark.R;
-import org.carbonrom.quark.utils.AdBlocker;
-import org.carbonrom.quark.utils.PrefsUtils;
+import org.carbonrom.quarks.R;
+import org.carbonrom.quarks.utils.AdBlocker;
+import org.carbonrom.quarks.utils.PrefsUtils;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.carbonrom.quark;
+package org.carbonrom.quarks;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -30,7 +30,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import org.carbonrom.quark.utils.PrefsUtils;
+import org.carbonrom.quarks.utils.PrefsUtils;
 
 // "noSuchMethodError" is thrown if lambda is used in this class (wtf)
 @SuppressWarnings("Convert2Lambda")

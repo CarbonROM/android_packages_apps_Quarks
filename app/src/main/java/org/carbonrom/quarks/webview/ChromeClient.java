@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.carbonrom.quark.webview;
+package org.carbonrom.quarks.webview;
 
 import android.content.ActivityNotFoundException;
 import android.content.Context;
@@ -29,10 +29,10 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import org.carbonrom.quark.MainActivity;
-import org.carbonrom.quark.R;
-import org.carbonrom.quark.history.HistoryDatabaseHandler;
-import org.carbonrom.quark.history.HistoryItem;
+import org.carbonrom.quarks.MainActivity;
+import org.carbonrom.quarks.R;
+import org.carbonrom.quarks.history.HistoryDatabaseHandler;
+import org.carbonrom.quarks.history.HistoryItem;
 
 
 class ChromeClient extends WebChromeClient {

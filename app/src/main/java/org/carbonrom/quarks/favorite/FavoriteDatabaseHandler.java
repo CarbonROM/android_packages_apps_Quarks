@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.carbonrom.quark.favorite;
+package org.carbonrom.quarks.favorite;
 
 import android.content.ContentValues;
 import android.content.Context;

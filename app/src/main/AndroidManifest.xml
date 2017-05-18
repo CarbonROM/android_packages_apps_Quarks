@@ -14,7 +14,7 @@
      limitations under the License.
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="org.carbonrom.quark">
+    package="org.carbonrom.quarks">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -31,7 +31,7 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name="org.carbonrom.quark.MainActivity"
+            android:name="org.carbonrom.quarks.MainActivity"
             android:documentLaunchMode="always"
             android:hardwareAccelerated="true"
             android:label="@string/app_name"
@@ -67,23 +67,23 @@
         </activity>
 
         <activity
-            android:name="org.carbonrom.quark.history.HistoryActivity"
+            android:name="org.carbonrom.quarks.history.HistoryActivity"
             android:label="@string/history_title"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
-            android:name="org.carbonrom.quark.favorite.FavoriteActivity"
+            android:name="org.carbonrom.quarks.favorite.FavoriteActivity"
             android:label="@string/favorite_title"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
-            android:name="org.carbonrom.quark.SettingsActivity"
+            android:name="org.carbonrom.quarks.SettingsActivity"
             android:label="@string/settings_title"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <provider
             android:name="android.support.v4.content.FileProvider"
-            android:authorities="org.carbonrom.quark.fileprovider"
+            android:authorities="org.carbonrom.quarks.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data

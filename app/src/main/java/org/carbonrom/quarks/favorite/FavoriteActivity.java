@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.carbonrom.quark.favorite;
+package org.carbonrom.quarks.favorite;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -29,8 +29,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 
-import org.carbonrom.quark.R;
-import org.carbonrom.quark.utils.UiUtils;
+import org.carbonrom.quarks.R;
+import org.carbonrom.quarks.utils.UiUtils;
 
 import java.util.ArrayList;
 import java.util.Collections;

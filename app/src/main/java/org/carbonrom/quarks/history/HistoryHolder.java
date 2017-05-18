@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.carbonrom.quark.history;
+package org.carbonrom.quarks.history;
 
 import android.content.Context;
 import android.content.Intent;
@@ -25,9 +25,9 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import org.carbonrom.quark.MainActivity;
-import org.carbonrom.quark.R;
-import org.carbonrom.quark.utils.UiUtils;
+import org.carbonrom.quarks.MainActivity;
+import org.carbonrom.quarks.R;
+import org.carbonrom.quarks.utils.UiUtils;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

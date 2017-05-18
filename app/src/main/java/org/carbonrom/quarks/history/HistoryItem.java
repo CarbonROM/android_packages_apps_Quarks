@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.carbonrom.quark.history;
+package org.carbonrom.quarks.history;
 
 public class HistoryItem {
 

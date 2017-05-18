@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.carbonrom.quark.history;
+package org.carbonrom.quarks.history;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -23,7 +23,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-import org.carbonrom.quark.R;
+import org.carbonrom.quarks.R;
 
 class HistoryAnimationDecorator extends RecyclerView.ItemDecoration {
 
