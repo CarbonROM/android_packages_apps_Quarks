@@ -79,6 +79,7 @@ import org.carbonrom.quarks.favorite.FavoriteActivity;
 import org.carbonrom.quarks.favorite.FavoriteDatabaseHandler;
 import org.carbonrom.quarks.history.HistoryActivity;
 import org.carbonrom.quarks.suggestions.SuggestionsAdapter;
+import org.carbonrom.quarks.utils.AdBlocker;
 import org.carbonrom.quarks.utils.PrefsUtils;
 import org.carbonrom.quarks.utils.UiUtils;
 import org.carbonrom.quarks.webview.WebViewCompat;
@@ -238,6 +239,8 @@ public class MainActivity extends WebViewExtActivity implements View.OnTouchList
         mWebView.init(this, autoCompleteTextView, mLoadingProgress, mIncognito);
         mWebView.setDesktopMode(desktopMode);
         mWebView.loadUrl(url == null ? PrefsUtils.getHomePage(this) : url);
+
+        AdBlocker.init(this);
 
         mHasThemeColorSupport = WebViewCompat.isThemeColorSupported(mWebView);
 

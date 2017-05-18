@@ -51,6 +51,12 @@
 
         <SwitchPreference
             android:defaultValue="1"
+            android:key="key_adblocker"
+            android:summary="@string/pref_adblocker_summary"
+            android:title="@string/pref_adblocker_title" />
+
+        <SwitchPreference
+            android:defaultValue="1"
             android:key="key_save_form_data"
             android:title="@string/pref_save_form_data_title" />
 
