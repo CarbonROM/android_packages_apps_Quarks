@@ -42,7 +42,7 @@ LOCAL_STATIC_JAVA_LIBRARIES += \
     android-support-annotations \
     okhttp
 
-LOCAL_PACKAGE_NAME := Quark
+LOCAL_PACKAGE_NAME := Quarks
 
 LOCAL_PROGUARD_FLAG_FILES := ../../proguard-rules.pro
 
