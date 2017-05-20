@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
         View.OnScrollChangeListener {
     public static final int FILE_CHOOSER_REQ = 421;
     private static final String TAG = MainActivity.class.getSimpleName();
-    private static final String PROVIDER = "org.carbonrom.quark.fileprovider";
+    private static final String PROVIDER = "org.carbonrom.quarks.fileprovider";
     private static final String EXTRA_INCOGNITO = "extra_incognito";
     private static final String EXTRA_DESKTOP_MODE = "extra_desktop_mode";
     private static final String EXTRA_URL = "extra_url";
