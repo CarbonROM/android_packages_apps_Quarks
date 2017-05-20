@@ -6,7 +6,7 @@ import android.support.annotation.WorkerThread;
 import android.text.TextUtils;
 import android.webkit.WebResourceResponse;
 
-import com.squareup.okhttp.HttpUrl;
+import com.android.okhttp.HttpUrl;
 
 import org.carbonrom.quarks.R;
 
