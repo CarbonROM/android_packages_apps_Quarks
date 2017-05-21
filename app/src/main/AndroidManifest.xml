@@ -65,8 +65,33 @@
                 <data android:mimeType="application/xhtml+xml" />
                 <data android:mimeType="application/vnd.wap.xhtml+xml" />
             </intent-filter>
+           <meta-data android:name="android.app.shortcuts"
+                android:resource="@xml/shortcuts" />
         </activity>
-
+        <activity
+            android:name=".shortcuts.Incognito"
+            android:label="@string/menu_incognito"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".shortcuts.NewTab"
+            android:label="@string/menu_in_new_tab"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".shortcuts.Favourites"
+            android:label="@string/menu_favorites"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
         <activity
             android:name="org.carbonrom.quarks.history.HistoryActivity"
             android:label="@string/history_title"
