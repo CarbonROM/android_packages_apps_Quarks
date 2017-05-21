@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut
+        android:shortcutId="incognito"
+        android:enabled="true"
+        android:icon="@drawable/ic_incognito"
+        android:shortcutDisabledMessage="@string/shortcuts_disabled"
+        android:shortcutLongLabel="@string/menu_incognito"
+        android:shortcutShortLabel="@string/menu_incognito">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="org.carbonrom.quarks"
+            android:targetClass="org.carbonrom.quarks.shortcuts.Incognito" />
+        <categories android:name="android.shortcut.conversation" />
+    </shortcut>
+    <shortcut
+        android:shortcutId="newtab"
+        android:enabled="true"
+        android:icon="@drawable/ic_new_tab"
+        android:shortcutDisabledMessage="@string/shortcuts_disabled"
+        android:shortcutLongLabel="@string/menu_in_new_tab"
+        android:shortcutShortLabel="@string/menu_in_new_tab">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="org.carbonrom.quarks"
+            android:targetClass="org.carbonrom.quarks.shortcuts.NewTab" />
+        <categories android:name="android.shortcut.conversation" />
+    </shortcut>
+    <shortcut
+        android:shortcutId="favourites"
+        android:enabled="true"
+        android:icon="@drawable/ic_favorite"
+        android:shortcutDisabledMessage="@string/shortcuts_disabled"
+        android:shortcutLongLabel="@string/menu_favorites"
+        android:shortcutShortLabel="@string/menu_favorites">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="org.carbonrom.quarks"
+            android:targetClass="org.carbonrom.quarks.favorite.FavoriteActivity" />
+        <categories android:name="android.shortcut.conversation" />
+    </shortcut>
+</shortcuts>
