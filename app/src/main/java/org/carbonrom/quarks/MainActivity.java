@@ -34,6 +34,7 @@ import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomSheetDialog;
 import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.FileProvider;
@@ -82,7 +83,7 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
     public static final int FILE_CHOOSER_REQ = 421;
     private static final String TAG = MainActivity.class.getSimpleName();
     private static final String PROVIDER = "org.carbonrom.quarks.fileprovider";
-    private static final String EXTRA_INCOGNITO = "extra_incognito";
+    public static final String EXTRA_INCOGNITO = "extra_incognito";
     private static final String EXTRA_DESKTOP_MODE = "extra_desktop_mode";
     private static final String EXTRA_URL = "extra_url";
     private static final int STORAGE_PERM_REQ = 423;
@@ -601,4 +602,19 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
             return false;
         }
     }
+
+    public void IncognitoShortcut() {
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra(EXTRA_INCOGNITO, true);
+        startActivity(intent);
+    }
+
+    public void NewTabShortcut() {
+        openInNewTab(null);
+    }
+
+    public void FavouritesShortcut() {
+        startActivity(new Intent(this, FavoriteActivity.class));
+    }
+
 }
