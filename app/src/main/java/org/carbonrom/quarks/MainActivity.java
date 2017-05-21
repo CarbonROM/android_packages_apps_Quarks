@@ -601,4 +601,19 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
             return false;
         }
     }
+
+    public void IncognitoShortcut() {
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra(EXTRA_INCOGNITO, true);
+        startActivity(intent);
+    }
+
+    public void NewTabShortcut() {
+        openInNewTab(null);
+    }
+
+    public void FavouritesShortcut() {
+        startActivity(new Intent(this, FavoriteActivity.class));
+    }
+
 }
