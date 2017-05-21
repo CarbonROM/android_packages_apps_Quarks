@@ -71,6 +71,8 @@
 
     <!-- Shortcut: the current webPage has been added to the launcher -->
     <string name="shortcut_added">Added to the home screen</string>
+    <!-- Shortcuts disabled -->
+    <string name="shortcuts_disabled">Shortcuts disabled</string>
 
     <!-- Settings: title -->
     <string name="settings_title">Settings</string>
