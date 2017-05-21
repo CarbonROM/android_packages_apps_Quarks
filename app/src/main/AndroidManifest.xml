@@ -65,8 +65,9 @@
                 <data android:mimeType="application/xhtml+xml" />
                 <data android:mimeType="application/vnd.wap.xhtml+xml" />
             </intent-filter>
+           <meta-data android:name="android.app.shortcuts"
+                android:resource="@xml/shortcuts" />
         </activity>
-
         <activity
             android:name="org.carbonrom.quarks.history.HistoryActivity"
             android:label="@string/history_title"
