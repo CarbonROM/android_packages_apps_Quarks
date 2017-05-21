@@ -28,5 +28,32 @@
                 android:name="extra_incognito"
                 android:value="true" />
         </intent>
+        <categories android:name="android.shortcut.conversation" />
+    </shortcut>
+    <shortcut
+        android:shortcutId="newtab"
+        android:enabled="true"
+        android:icon="@drawable/ic_new_tab"
+        android:shortcutDisabledMessage="@string/shortcut_disabled"
+        android:shortcutLongLabel="@string/shortcut_in_new_tab"
+        android:shortcutShortLabel="@string/shortcut_in_new_tab">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="org.carbonrom.quarks"
+            android:targetClass="org.carbonrom.quarks.MainActivity" />
+        <categories android:name="android.shortcut.conversation" />
+    </shortcut>
+    <shortcut
+        android:shortcutId="favourites"
+        android:enabled="true"
+        android:icon="@drawable/ic_favorite"
+        android:shortcutDisabledMessage="@string/shortcut_disabled"
+        android:shortcutLongLabel="@string/shortcut_favorites"
+        android:shortcutShortLabel="@string/shortcut_favorites">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="org.carbonrom.quarks"
+            android:targetClass="org.carbonrom.quarks.favorite.FavoriteActivity" />
+        <categories android:name="android.shortcut.conversation" />
     </shortcut>
 </shortcuts>

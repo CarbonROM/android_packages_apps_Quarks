@@ -159,6 +159,12 @@
     <!-- Favorite: edit dialog: invalid url error message -->
     <string name="favorite_edit_error">Insert a valid URL</string>
 
+    <!-- Launcher shortcuts -->
+    <string name="shortcut_incognito">Incognito tab</string>
+    <string name="shortcut_in_new_tab">New tab</string>
+    <string name="shortcut_favorites">Favorites</string>
+    <string name="shortcut_disabled">Shortcuts disabled</string>
+
     <!-- No activity found to open the given url error -->
     <string name="error_no_activity_found">No app can handle this link</string>
 
