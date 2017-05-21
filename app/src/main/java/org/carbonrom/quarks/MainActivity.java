@@ -601,4 +601,22 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
             return false;
         }
     }
+
+    // Launcher static shortcuts
+    public boolean handleShortcuts(String shortcut) {
+        switch (shortcut){
+            case "incognito":
+                Intent intent = new Intent(this, MainActivity.class);
+                intent.putExtra(EXTRA_INCOGNITO, true);
+                startActivity(intent);
+            break;
+            case "newtab":
+                openInNewTab(null);
+            break;
+            case "favourites":
+                startActivity(new Intent(this, FavoriteActivity.class));
+            break;
+        }
+        return true;
+    }
 }
