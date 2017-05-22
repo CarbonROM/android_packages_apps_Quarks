@@ -111,5 +111,35 @@
             android:name="android.webkit.WebView.EnableSafeBrowsing"
             android:value="true" />
 
+        <service
+            android:name=".tiles.IncognitoTile"
+            android:enabled="true"
+            android:icon="@drawable/ic_incognito"
+            android:label="@string/menu_incognito"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE"/>
+            </intent-filter>
+        </service>
+        <service
+            android:name=".tiles.NewTabTile"
+            android:enabled="true"
+            android:icon="@drawable/ic_new_tab"
+            android:label="@string/menu_in_new_tab"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE"/>
+            </intent-filter>
+        </service>
+        <service
+            android:name=".tiles.FavoritesTile"
+            android:enabled="true"
+            android:icon="@drawable/ic_favorite"
+            android:label="@string/menu_favorites"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE"/>
+            </intent-filter>
+        </service>
     </application>
 </manifest>

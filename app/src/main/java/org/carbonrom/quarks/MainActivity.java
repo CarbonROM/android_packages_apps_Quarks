@@ -862,4 +862,22 @@ public class MainActivity extends WebViewExtActivity implements
             }
         }
     }
+
+    // Intents used for QuickTiles and other shortcuts
+    public static boolean handleShortcuts(Context c, String shortcut) {
+        switch (shortcut){
+            case "incognito":
+                Intent intent = new Intent(c, MainActivity.class);
+                intent.putExtra(IntentUtils.EXTRA_INCOGNITO, true);
+                c.startActivity(intent);
+                break;
+            case "newtab":
+                c.startActivity(new Intent(c, MainActivity.class));
+                break;
+            case "favorites":
+                c.startActivity(new Intent(c, FavoriteActivity.class));
+                break;
+        }
+        return true;
+    }
 }
