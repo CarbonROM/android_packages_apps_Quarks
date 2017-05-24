@@ -202,10 +202,16 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
     }
 
     @Override
-    protected void onResume() {
-        CookieManager.getInstance().setAcceptCookie(PrefsUtils.getCookie(this));
+    public void onPause() {
+        mWebView.onPause();
+        super.onPause();
+    }
 
+    @Override
+    protected void onResume() {
         super.onResume();
+        mWebView.onResume();
+        CookieManager.getInstance().setAcceptCookie(PrefsUtils.getCookie(this));
         if (PrefsUtils.getLookLock(this)) {
             getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE,
                     WindowManager.LayoutParams.FLAG_SECURE);
