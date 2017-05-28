@@ -90,6 +90,7 @@ public class WebViewExt extends WebView {
         getSettings().setGeolocationEnabled(PrefsUtils.getLocation(mContext));
         getSettings().setBuiltInZoomControls(true);
         getSettings().setDisplayZoomControls(false);
+        getSettings().setDomStorageEnabled(true);
 
         setWebViewClient(new WebClient());
 
