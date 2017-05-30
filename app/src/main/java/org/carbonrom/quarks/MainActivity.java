@@ -68,6 +68,7 @@ import android.view.inputmethod.EditorInfo;
 import android.webkit.CookieManager;
 import android.webkit.URLUtil;
 import android.widget.AutoCompleteTextView;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -79,6 +80,7 @@ import org.carbonrom.quarks.favorite.FavoriteActivity;
 import org.carbonrom.quarks.favorite.FavoriteDatabaseHandler;
 import org.carbonrom.quarks.history.HistoryActivity;
 import org.carbonrom.quarks.suggestions.SuggestionsAdapter;
+import org.carbonrom.quarks.ui.SearchBarController;
 import org.carbonrom.quarks.utils.AdBlocker;
 import org.carbonrom.quarks.utils.PrefsUtils;
 import org.carbonrom.quarks.utils.UiUtils;
@@ -91,7 +93,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 public class MainActivity extends WebViewExtActivity implements View.OnTouchListener,
-        View.OnScrollChangeListener {
+        View.OnScrollChangeListener, SearchBarController.OnCancelListener {
     private static final String TAG = MainActivity.class.getSimpleName();
     private static final String PROVIDER = "org.carbonrom.quarks.fileprovider";
     private static final String EXTRA_INCOGNITO = "extra_incognito";
@@ -123,6 +125,7 @@ public class MainActivity extends WebViewExtActivity implements View.OnTouchList
     private CoordinatorLayout mCoordinator;
     private WebViewExt mWebView;
     private ProgressBar mLoadingProgress;
+    private SearchBarController mSearchController;
     private boolean mHasThemeColorSupport;
     private Drawable mLastActionBarDrawable;
     private int mThemeColor;
@@ -255,6 +258,14 @@ public class MainActivity extends WebViewExtActivity implements View.OnTouchList
         mWebView.setOnTouchListener(this);
         mWebView.setOnScrollChangeListener(this);
 
+        mSearchController = new SearchBarController(mWebView,
+                (EditText) findViewById(R.id.search_menu_edit),
+                (TextView) findViewById(R.id.search_status),
+                (ImageButton) findViewById(R.id.search_menu_prev),
+                (ImageButton) findViewById(R.id.search_menu_next),
+                (ImageButton) findViewById(R.id.search_menu_cancel),
+                this);
+
         applyThemeColor(mThemeColor);
 
         try {
@@ -305,6 +316,7 @@ public class MainActivity extends WebViewExtActivity implements View.OnTouchList
 
     @Override
     public void onBackPressed() {
+        mSearchController.onCancel();
         if (mWebView.canGoBack()) {
             mWebView.goBack();
         } else {
@@ -397,6 +409,10 @@ public class MainActivity extends WebViewExtActivity implements View.OnTouchList
                         // Delay a bit to allow popup menu hide animation to play
                         new Handler().postDelayed(() -> shareUrl(mWebView.getUrl()), 300);
                         break;
+                    case R.id.menu_search:
+                        // Run the search setup
+                        showSearch();
+                        break;
                     case R.id.menu_favorite:
                         startActivity(new Intent(this, FavoriteActivity.class));
                         break;
@@ -450,6 +466,18 @@ public class MainActivity extends WebViewExtActivity implements View.OnTouchList
             //noinspection RestrictedApi
             helper.show();
         });
+    }
+
+    private void showSearch() {
+        findViewById(R.id.toolbar_search_bar).setVisibility(View.GONE);
+        findViewById(R.id.toolbar_search_page).setVisibility(View.VISIBLE);
+        mSearchController.onShow();
+    }
+
+    @Override
+    public void onCancelSearch() {
+        findViewById(R.id.toolbar_search_page).setVisibility(View.GONE);
+        findViewById(R.id.toolbar_search_bar).setVisibility(View.VISIBLE);
     }
 
     private void openInNewTab(String url, boolean incognito) {
