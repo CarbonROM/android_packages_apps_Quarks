@@ -46,6 +46,8 @@
     <string name="menu_night_mode">Switch to night mode</string>
     <!-- Menu action: enable day mode -->
     <string name="menu_day_mode">Switch to day mode</string>
+    <!-- Menu action: search in page -->
+    <string name="menu_search">Find in page</string>
 
     <!-- Share webPage: "send to" dialog title -->
     <string name="share_title">Send to</string>
@@ -187,4 +189,9 @@
     <string name="shortcut_new_incognito_tab">New incognito tab</string>
 
     <string translatable="false" name="night_mode_pref">false</string>
+    <!-- Suggestions provider: no suggestions provider -->
+    <string name="suggestions_provider_none">None</string>
+
+    <!-- Search in page: search hint -->
+    <string name="search_bar_hint">Search</string>
 </resources>
