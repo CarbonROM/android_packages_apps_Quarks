@@ -29,14 +29,11 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import org.carbonrom.quarks.R;
-import org.carbonrom.quarks.history.HistoryDatabaseHandler;
-import org.carbonrom.quarks.history.HistoryItem;
 
+import org.carbonrom.quarks.history.HistoryProvider;
 
 class ChromeClient extends WebChromeClient {
-
     private final WebViewExtActivity mActivity;
-    private final HistoryDatabaseHandler mHistoryHandler;
     private final boolean mIncognito;
 
     private EditText mEditText;
@@ -45,7 +42,6 @@ class ChromeClient extends WebChromeClient {
     ChromeClient(WebViewExtActivity activity, boolean incognito) {
         super();
         mActivity = activity;
-        mHistoryHandler = new HistoryDatabaseHandler(activity);
         mIncognito = incognito;
     }
 
@@ -60,7 +56,7 @@ class ChromeClient extends WebChromeClient {
     public void onReceivedTitle(WebView view, String title) {
         mEditText.setText(view.getUrl());
         if (!mIncognito) {
-            mHistoryHandler.addItem(new HistoryItem(title, view.getUrl()));
+            HistoryProvider.addOrUpdateItem(mActivity.getContentResolver(), title, view.getUrl());
         }
     }
 

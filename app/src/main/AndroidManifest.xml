@@ -138,5 +138,11 @@
                 <action android:name="android.service.quicksettings.action.QS_TILE"/>
             </intent-filter>
         </service>
+
+        <provider
+            android:name=".history.HistoryProvider"
+            android:authorities="org.carbonrom.quarks.history"
+            android:exported="false" />
+
     </application>
 </manifest>
