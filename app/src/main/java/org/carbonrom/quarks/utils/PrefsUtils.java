@@ -31,6 +31,7 @@ public final class PrefsUtils {
     private static final String KEY_COOKIE = "key_cookie";
     private static final String KEY_INCOGNITO_POLICY = "key_incognito_policy";
     private static final String KEY_ADBLOCKER = "key_adblocker";
+    private static final String KEY_DO_NOT_TRACK = "key_do_not_track";
 
     private PrefsUtils() {
     }
@@ -79,6 +80,12 @@ public final class PrefsUtils {
     public static boolean getAdBlocker(Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         return prefs.getBoolean(KEY_ADBLOCKER, true);
+
+    }
+
+    public static boolean getDoNotTrack(Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        return prefs.getBoolean(KEY_DO_NOT_TRACK, false);
     }
 
     public static void setHomePage(Context context, String value) {
