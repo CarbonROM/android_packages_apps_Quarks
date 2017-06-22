@@ -57,6 +57,7 @@ import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.webkit.CookieManager;
+import android.webkit.URLUtil;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ImageView;
@@ -97,7 +98,6 @@ public class MainActivity extends WebViewExtActivity implements View.OnTouchList
     private ImageView searchIncognito;
 
     private String mWaitingDownloadUrl;
-    private String mWaitingDownloadName;
 
     private Bitmap mUrlIcon;
 
@@ -240,7 +240,7 @@ public class MainActivity extends WebViewExtActivity implements View.OnTouchList
                 break;
             case STORAGE_PERM_REQ:
                 if (hasStoragePermission() && mWaitingDownloadUrl != null) {
-                    downloadFileAsk(mWaitingDownloadUrl, mWaitingDownloadName);
+                    downloadFileAsk(mWaitingDownloadUrl, null, null);
                 } else {
                     if (shouldShowRequestPermissionRationale(
                             Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
@@ -421,15 +421,15 @@ public class MainActivity extends WebViewExtActivity implements View.OnTouchList
                 Snackbar.LENGTH_LONG).show();
     }
 
-    public void downloadFileAsk(String url, String fileName) {
+    public void downloadFileAsk(String url, String contentDisposition, String mimeType) {
+        String fileName = URLUtil.guessFileName(url, contentDisposition, mimeType);
+
         if (!hasStoragePermission()) {
             mWaitingDownloadUrl = url;
-            mWaitingDownloadName = fileName;
             requestStoragePermission();
             return;
         }
         mWaitingDownloadUrl = null;
-        mWaitingDownloadName = null;
 
         new AlertDialog.Builder(this)
                 .setTitle(R.string.download_title)
@@ -467,7 +467,7 @@ public class MainActivity extends WebViewExtActivity implements View.OnTouchList
         shareLayout.setOnClickListener(v -> shareUrl(url));
         favouriteLayout.setOnClickListener(v -> setAsFavorite(url, url));
         if (shouldAllowDownload) {
-            downloadLayout.setOnClickListener(v -> downloadFileAsk(url, ""));
+            downloadLayout.setOnClickListener(v -> downloadFileAsk(url, null, null));
             downloadLayout.setVisibility(View.VISIBLE);
         }
         sheet.setContentView(view);
