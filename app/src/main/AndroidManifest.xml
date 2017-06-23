@@ -144,5 +144,9 @@
             android:authorities="org.carbonrom.quarks.history"
             android:exported="false" />
 
+        <meta-data
+            android:name="android.webkit.WebView.EnableSafeBrowsing"
+            android:value="true" />
+
     </application>
 </manifest>
