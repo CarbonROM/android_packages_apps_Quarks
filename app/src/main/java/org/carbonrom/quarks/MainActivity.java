@@ -25,6 +25,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
+import android.net.http.HttpResponseCache;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
@@ -57,16 +58,18 @@ import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.webkit.CookieManager;
 import android.webkit.URLUtil;
+import android.widget.AutoCompleteTextView;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import org.carbonrom.quarks.favorite.Favorite;
 import org.carbonrom.quarks.favorite.FavoriteActivity;
 import org.carbonrom.quarks.favorite.FavoriteDatabaseHandler;
 import org.carbonrom.quarks.history.HistoryActivity;
-import org.carbonrom.quarks.ui.EditTextExt;
+import org.carbonrom.quarks.suggestions.SuggestionsAdapter;
 import org.carbonrom.quarks.utils.AdBlocker;
 import org.carbonrom.quarks.utils.PrefsUtils;
 import org.carbonrom.quarks.utils.UiUtils;
@@ -92,7 +95,6 @@ public class MainActivity extends WebViewExtActivity implements View.OnTouchList
     private CoordinatorLayout mCoordinator;
     private WebViewExt mWebView;
     private CardView searchCard;
-    private EditTextExt editText;
     private ImageView searchMenu;
     private ImageView searchIncognito;
 
@@ -122,27 +124,40 @@ public class MainActivity extends WebViewExtActivity implements View.OnTouchList
             mWebView.reload();
             new Handler().postDelayed(() -> mSwipeRefreshLayout.setRefreshing(false), 1000);
         });
-        ProgressBar progressBar = (ProgressBar) findViewById(R.id.load_progress);
-        editText = (EditTextExt) findViewById(R.id.url_bar);
-        editText.setOnEditorActionListener((v, actionId, event) -> {
-            if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-                UiUtils.hideKeyboard(editText);
 
-                mWebView.loadUrl(editText.getText().toString());
-                editText.clearFocus();
+        ProgressBar progressBar = (ProgressBar) findViewById(R.id.load_progress);
+        AutoCompleteTextView autoCompleteTextView =
+                (AutoCompleteTextView) findViewById(R.id.url_bar);
+        autoCompleteTextView.setAdapter(new SuggestionsAdapter(this));
+        autoCompleteTextView.setOnEditorActionListener((v, actionId, event) -> {
+
+            if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                UiUtils.hideKeyboard(autoCompleteTextView);
+
+                mWebView.loadUrl(autoCompleteTextView.getText().toString());
+                autoCompleteTextView.clearFocus();
                 return true;
             }
             return false;
         });
-        editText.setOnKeyListener((v, keyCode, event) -> {
+        autoCompleteTextView.setOnKeyListener((v, keyCode, event) -> {
             if (keyCode == KeyEvent.KEYCODE_ENTER) {
-                UiUtils.hideKeyboard(editText);
+                UiUtils.hideKeyboard(autoCompleteTextView);
 
-                mWebView.loadUrl(editText.getText().toString());
-                editText.clearFocus();
+                mWebView.loadUrl(autoCompleteTextView.getText().toString());
+                autoCompleteTextView.clearFocus();
                 return true;
             }
             return false;
+        });
+        autoCompleteTextView.setOnItemClickListener((adapterView, view, pos, l) -> {
+            CharSequence searchString = ((TextView) view.findViewById(R.id.title)).getText();
+            String url = searchString.toString();
+
+            UiUtils.hideKeyboard(autoCompleteTextView);
+
+            autoCompleteTextView.clearFocus();
+            mWebView.loadUrl(url);
         });
 
         // Make sure prefs are set before loading them
@@ -189,8 +204,9 @@ public class MainActivity extends WebViewExtActivity implements View.OnTouchList
         searchIncognito.setVisibility(mIncognito ? View.VISIBLE : View.GONE);
 
         setupMenu();
+
         mWebView = (WebViewExt) findViewById(R.id.web_view);
-        mWebView.init(this, editText, progressBar, mIncognito);
+        mWebView.init(this, autoCompleteTextView, progressBar, mIncognito);
         mWebView.setDesktopMode(desktopMode);
         mWebView.loadUrl(url == null ? PrefsUtils.getHomePage(this) : url);
 
@@ -200,11 +216,24 @@ public class MainActivity extends WebViewExtActivity implements View.OnTouchList
         mWebView.setOnTouchListener(this);
         mWebView.setOnScrollChangeListener(this);
         AdBlocker.init(this);
+
+        try {
+            File httpCacheDir =
+                    new File(getApplicationContext().getCacheDir(), "suggestion_responses");
+            long httpCacheSize = 1024 * 1024; // 1 MiB
+            HttpResponseCache.install(httpCacheDir, httpCacheSize);
+        } catch (IOException e) {
+            Log.i(TAG, "HTTP response cache installation failed:" + e);
+        }
     }
 
     @Override
     protected void onStop() {
         CookieManager.getInstance().flush();
+        HttpResponseCache cache = HttpResponseCache.getInstalled();
+        if (cache != null) {
+            cache.flush();
+        }
         super.onStop();
     }
 
