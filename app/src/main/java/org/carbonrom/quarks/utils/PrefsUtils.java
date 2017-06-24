@@ -33,6 +33,7 @@ public final class PrefsUtils {
     private static final String KEY_SUGGESTION_PROVIDER = "key_suggestion_provider";
     private static final String KEY_INCOGNITO_POLICY = "key_incognito_policy";
     private static final String KEY_ADBLOCKER = "key_adblocker";
+    private static final String KEY_SAVE_FORM_DATA = "key_save_form_data";
 
     public enum SuggestionProviderType {
         BAIDU,
@@ -108,6 +109,11 @@ public final class PrefsUtils {
     public static boolean getAdBlocker(Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         return prefs.getBoolean(KEY_ADBLOCKER, true);
+    }
+
+    public static boolean getSaveFormData(Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        return prefs.getBoolean(KEY_SAVE_FORM_DATA, true);
     }
 
     public static void setHomePage(Context context, String value) {

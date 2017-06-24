@@ -121,6 +121,8 @@
     <string name="pref_adblocker_title">Adblocker</string>
     <!-- Settings: adblocker summary -->
     <string name="pref_adblocker_summary">Block advertisements while browsing</string>
+    <!-- Settings: save form data title -->
+    <string name="pref_save_form_data_title">Save form data</string>
 
     <!-- History: title -->
     <string name="history_title">History</string>
