@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.carbonrom.quarks.ui;
+package org.lineageos.jelly.ui;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -21,22 +21,22 @@ import android.graphics.Color;
 import android.graphics.LinearGradient;
 import android.graphics.Rect;
 import android.graphics.Shader;
-import android.support.v7.widget.AppCompatEditText;
+import android.support.v7.widget.AppCompatAutoCompleteTextView;
 import android.util.AttributeSet;
 
-public class EditTextExt extends AppCompatEditText {
+public class AutoCompleteTextViewExt extends AppCompatAutoCompleteTextView {
 
     private int mPositionX;
 
-    public EditTextExt(Context context) {
+    public AutoCompleteTextViewExt(Context context) {
         super(context);
     }
 
-    public EditTextExt(Context context, AttributeSet attrs) {
+    public AutoCompleteTextViewExt(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public EditTextExt(Context context, AttributeSet attrs, int defStyle) {
+    public AutoCompleteTextViewExt(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
 
