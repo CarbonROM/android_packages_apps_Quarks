@@ -15,7 +15,6 @@
  */
 package org.carbonrom.quarks.utils;
 
-import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -59,6 +58,7 @@ public final class UiUtils {
     }
 
     public static Bitmap getShortcutIcon(Context context, Bitmap bitmap) {
+
         Bitmap out = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getWidth(),
                 Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(out);
