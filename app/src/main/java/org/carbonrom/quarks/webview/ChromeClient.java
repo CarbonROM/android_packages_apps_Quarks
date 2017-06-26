@@ -22,7 +22,6 @@ import android.net.Uri;
 import android.view.View;
 import android.webkit.GeolocationPermissions;
 import android.webkit.ValueCallback;
-import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -32,7 +31,7 @@ import org.carbonrom.quarks.R;
 
 import org.carbonrom.quarks.history.HistoryProvider;
 
-class ChromeClient extends WebChromeClient {
+class ChromeClient extends WebChromeClientCompat {
     private final WebViewExtActivity mActivity;
     private final boolean mIncognito;
 
