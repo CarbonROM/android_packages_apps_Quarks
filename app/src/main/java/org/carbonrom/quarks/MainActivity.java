@@ -219,8 +219,7 @@ public class MainActivity extends WebViewExtActivity implements View.OnTouchList
         AdBlocker.init(this);
 
         try {
-            File httpCacheDir =
-                    new File(getApplicationContext().getCacheDir(), "suggestion_responses");
+            File httpCacheDir = new File(getCacheDir(), "suggestion_responses");
             long httpCacheSize = 1024 * 1024; // 1 MiB
             HttpResponseCache.install(httpCacheDir, httpCacheSize);
         } catch (IOException e) {
