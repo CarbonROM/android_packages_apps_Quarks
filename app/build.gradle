@@ -4,7 +4,7 @@ android {
     compileSdkVersion 27
 
     defaultConfig {
-        applicationId "org.lineageos.jelly"
+        applicationId "org.carbonrom.quarks"
         minSdkVersion 26
         targetSdkVersion 27
         versionCode 1

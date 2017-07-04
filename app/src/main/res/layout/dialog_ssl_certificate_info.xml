@@ -50,19 +50,19 @@
             android:textAllCaps="true"
             android:textStyle="bold" />
 
-        <org.lineageos.jelly.ui.KeyValueView
+        <org.carbonrom.quarks.ui.KeyValueView
             android:id="@+id/issued_to_cn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp" />
 
-        <org.lineageos.jelly.ui.KeyValueView
+        <org.carbonrom.quarks.ui.KeyValueView
             android:id="@+id/issued_to_o"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp" />
 
-        <org.lineageos.jelly.ui.KeyValueView
+        <org.carbonrom.quarks.ui.KeyValueView
             android:id="@+id/issued_to_un"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -77,19 +77,19 @@
             android:textAllCaps="true"
             android:textStyle="bold" />
 
-        <org.lineageos.jelly.ui.KeyValueView
+        <org.carbonrom.quarks.ui.KeyValueView
             android:id="@+id/issued_by_cn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp" />
 
-        <org.lineageos.jelly.ui.KeyValueView
+        <org.carbonrom.quarks.ui.KeyValueView
             android:id="@+id/issued_by_o"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp" />
 
-        <org.lineageos.jelly.ui.KeyValueView
+        <org.carbonrom.quarks.ui.KeyValueView
             android:id="@+id/issued_by_un"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -104,13 +104,13 @@
             android:textAllCaps="true"
             android:textStyle="bold" />
 
-        <org.lineageos.jelly.ui.KeyValueView
+        <org.carbonrom.quarks.ui.KeyValueView
             android:id="@+id/issued_on"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp" />
 
-        <org.lineageos.jelly.ui.KeyValueView
+        <org.carbonrom.quarks.ui.KeyValueView
             android:id="@+id/expires_on"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
