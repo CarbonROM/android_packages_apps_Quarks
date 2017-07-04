@@ -14,7 +14,7 @@
      limitations under the License.
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="org.lineageos.jelly">
+    package="org.carbonrom.quarks">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -31,7 +31,7 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name="org.lineageos.jelly.MainActivity"
+            android:name="org.carbonrom.quarks.MainActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize"
             android:documentLaunchMode="always"
             android:hardwareAccelerated="true"
@@ -72,23 +72,23 @@
         </activity>
 
         <activity
-            android:name="org.lineageos.jelly.history.HistoryActivity"
+            android:name="org.carbonrom.quarks.history.HistoryActivity"
             android:label="@string/history_title"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
-            android:name="org.lineageos.jelly.favorite.FavoriteActivity"
+            android:name="org.carbonrom.quarks.favorite.FavoriteActivity"
             android:label="@string/favorite_title"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
-            android:name="org.lineageos.jelly.SettingsActivity"
+            android:name="org.carbonrom.quarks.SettingsActivity"
             android:label="@string/settings_title"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <provider
             android:name="android.support.v4.content.FileProvider"
-            android:authorities="org.lineageos.jelly.fileprovider"
+            android:authorities="org.carbonrom.quarks.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data
@@ -97,8 +97,8 @@
         </provider>
 
         <provider
-            android:name=".history.HistoryProvider"
-            android:authorities="org.lineageos.jelly.history"
+            android:name="org.carbonrom.quarks.history.HistoryProvider"
+            android:authorities="org.carbonrom.quarks.history"
             android:exported="false" />
 
         <meta-data

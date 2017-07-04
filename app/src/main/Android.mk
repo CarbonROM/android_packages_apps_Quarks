@@ -25,7 +25,7 @@ LOCAL_RESOURCE_DIR := $(LOCAL_PATH)/res \
 
 LOCAL_SRC_FILES := \
     $(call all-java-files-under, java) \
-    $(call all-java-files-under, java_lineage)
+    $(call all-java-files-under, java_carbon)
 
 LOCAL_AAPT_FLAGS := \
     --auto-add-overlay \
@@ -43,7 +43,7 @@ LOCAL_STATIC_JAVA_LIBRARIES += \
     android-support-v7-recyclerview \
     android-support-annotations
 
-LOCAL_PACKAGE_NAME := Jelly
+LOCAL_PACKAGE_NAME := Quarks
 
 LOCAL_PROGUARD_FLAG_FILES := ../../proguard-rules.pro
 

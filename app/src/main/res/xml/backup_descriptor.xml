@@ -17,7 +17,7 @@
     <!-- Shared preferences -->
     <include
         domain="sharedpref"
-        path="org.lineageos.jelly_preferences.xml" />
+        path="org.carbonrom.jelly_preferences.xml" />
 
     <!-- Databases -->
     <include

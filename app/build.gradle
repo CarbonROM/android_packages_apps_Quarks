@@ -4,7 +4,7 @@ android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
     defaultConfig {
-        applicationId "org.lineageos.jelly"
+        applicationId "org.carbonrom.quarks"
         minSdkVersion 24
         targetSdkVersion 25
         versionCode 1
