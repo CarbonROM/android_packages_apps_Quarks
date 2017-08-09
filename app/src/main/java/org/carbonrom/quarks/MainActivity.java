@@ -44,8 +44,6 @@ import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.FileProvider;
-import android.support.v4.view.GestureDetectorCompat;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.view.menu.MenuBuilder;
@@ -56,11 +54,9 @@ import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.ContextThemeWrapper;
-import android.view.GestureDetector;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -94,8 +90,8 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-public class MainActivity extends WebViewExtActivity implements View.OnTouchListener,
-        View.OnScrollChangeListener, SearchBarController.OnCancelListener {
+public class MainActivity extends WebViewExtActivity implements
+         SearchBarController.OnCancelListener {
     private static final String TAG = MainActivity.class.getSimpleName();
     private static final String PROVIDER = "org.carbonrom.quarks.fileprovider";
     private static final String EXTRA_INCOGNITO = "extra_incognito";
@@ -140,10 +136,6 @@ public class MainActivity extends WebViewExtActivity implements View.OnTouchList
 
     private Bitmap mUrlIcon;
 
-    private SwipeRefreshLayout mSwipeRefreshLayout;
-    private GestureDetectorCompat mGestureDetector;
-    private boolean mFingerReleased = false;
-    private boolean mGestureOngoing = false;
     private boolean mIncognito;
     private boolean nightMode;
 
@@ -162,11 +154,6 @@ public class MainActivity extends WebViewExtActivity implements View.OnTouchList
         setSupportActionBar(toolbar);
 
         mCoordinator = (CoordinatorLayout) findViewById(R.id.coordinator_layout);
-        mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh);
-        mSwipeRefreshLayout.setOnRefreshListener(() -> {
-            mWebView.reload();
-            new Handler().postDelayed(() -> mSwipeRefreshLayout.setRefreshing(false), 1000);
-        });
         mLoadingProgress = (ProgressBar) findViewById(R.id.load_progress);
         autoCompleteTextView = (AutoCompleteTextView) findViewById(R.id.url_bar);
         autoCompleteTextView.setAdapter(new SuggestionsAdapter(this));
@@ -256,17 +243,6 @@ public class MainActivity extends WebViewExtActivity implements View.OnTouchList
         AdBlocker.init(this);
 
         mHasThemeColorSupport = WebViewCompat.isThemeColorSupported(mWebView);
-
-        mGestureDetector = new GestureDetectorCompat(this,
-                new GestureDetector.SimpleOnGestureListener() {
-                    @Override
-                    public boolean onDoubleTapEvent(MotionEvent e) {
-                        mGestureOngoing = true;
-                        return false;
-                    }
-                });
-        mWebView.setOnTouchListener(this);
-        mWebView.setOnScrollChangeListener(this);
 
         mSearchController = new SearchBarController(mWebView,
                 (EditText) findViewById(R.id.search_menu_edit),
@@ -741,7 +717,7 @@ public class MainActivity extends WebViewExtActivity implements View.OnTouchList
         addContentView(mCustomView, new ViewGroup.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
         findViewById(R.id.app_bar_layout).setVisibility(View.GONE);
-        mSwipeRefreshLayout.setVisibility(View.GONE);
+        findViewById(R.id.web_view_container).setVisibility(View.VISIBLE);
     }
 
     @Override
@@ -752,7 +728,7 @@ public class MainActivity extends WebViewExtActivity implements View.OnTouchList
         getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         setImmersiveMode(false);
         findViewById(R.id.app_bar_layout).setVisibility(View.VISIBLE);
-        mSwipeRefreshLayout.setVisibility(View.VISIBLE);
+        findViewById(R.id.web_view_container).setVisibility(View.GONE);
         ViewGroup viewGroup = (ViewGroup) mCustomView.getParent();
         viewGroup.removeView(mCustomView);
         mFullScreenCallback.onCustomViewHidden();
@@ -778,40 +754,6 @@ public class MainActivity extends WebViewExtActivity implements View.OnTouchList
         launcherIcon.recycle();
         Snackbar.make(mCoordinator, getString(R.string.shortcut_added),
                 Snackbar.LENGTH_LONG).show();
-    }
-
-    @Override
-    public boolean onTouch(View v, MotionEvent event) {
-        mGestureDetector.onTouchEvent(event);
-        mFingerReleased = event.getAction() == MotionEvent.ACTION_UP;
-
-        if (mGestureOngoing && mFingerReleased && mWebView.getScrollY() == 0) {
-            // We are ending a gesture and we are at the top
-            mSwipeRefreshLayout.setEnabled(true);
-        } else if (mGestureOngoing || event.getPointerCount() > 1) {
-            // A gesture is ongoing or starting
-            mSwipeRefreshLayout.setEnabled(false);
-        } else if (event.getAction() != MotionEvent.ACTION_MOVE) {
-            // We are either initiating or ending a movement
-            if (mWebView.getScrollY() == 0) {
-                mSwipeRefreshLayout.setEnabled(true);
-            } else {
-                mSwipeRefreshLayout.setEnabled(false);
-            }
-        }
-        // Reset the flag, the gesture detector will set it to true if the
-        // gesture is still ongoing
-        mGestureOngoing = false;
-
-        return super.onTouchEvent(event);
-    }
-
-    @Override
-    public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
-        // In case we reach the top without touching the screen (e.g. fling gesture)
-        if (mFingerReleased && scrollY == 0) {
-            mSwipeRefreshLayout.setEnabled(true);
-        }
     }
 
     // Intents used for QuickTiles and other shortcuts
