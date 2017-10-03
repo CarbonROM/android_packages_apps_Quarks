@@ -97,6 +97,11 @@
         </provider>
 
         <provider
+            android:name=".favorite.FavoriteProvider"
+            android:authorities="org.carbonrom.quarks.favorite"
+            android:exported="false" />
+
+        <provider
             android:name="org.carbonrom.quarks.history.HistoryProvider"
             android:authorities="org.carbonrom.quarks.history"
             android:exported="false" />
