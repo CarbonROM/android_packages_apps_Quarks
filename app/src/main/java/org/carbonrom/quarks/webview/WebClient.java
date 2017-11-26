@@ -74,7 +74,7 @@ class WebClient extends WebViewClient {
     @Override
     public void onPageFinished(WebView view, String url) {
         super.onPageFinished(view, url);
-        mUrlBarController.onPageLoadFinished();
+        mUrlBarController.onPageLoadFinished(view.getContext(), view.getCertificate());
     }
 
     @Override
