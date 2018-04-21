@@ -1,0 +1,4 @@
+{
+  "pushCert": "certificate version 0.1\npusher RJ Trujillo \u003ccertifiedblyndguy@gmail.com\u003e 1524352485 -0700\npushee ssh://review.carbonrom.org:29418/CarbonROM/android_packages_apps_Quarks\nnonce 1524352500-A12EA678452074BB2247EA28FBE60B95B1098321\n\n0000000000000000000000000000000000000000 8d7f0089160b7a639fe5ee0dc1a797194f3c69ed refs/for/cr-6.1/update-quarks\n-----BEGIN PGP SIGNATURE-----\n\niQEcBAABAgAGBQJa28XlAAoJEPmgJR/9oEk/QSUH/03LEybLb0kSA3ZBzEbio2Sk\nZRDTr1SuhcKSKXjx8AZ4qSpg9Ue7FFkgCgcqPpIfc45b/KLDPOhlOVujoxMvyIo0\ndqPSEtMLtDNSGOVgOwAEA4DD6cjS7PRrRmEEwlCRBpLtrPlxf5f6d+/6fpNTrnOU\nl/7eEIZ3HoGvp03RRG1QctWvTVksX370csbRKubs4wRwXBmPwqAiYbLS8t+IUeRP\noUeLUy9Xi38LYUwU+V30wGOaYnb9cVWQq/ctvy1g7/GAYXq+EDCWMumMNrpeQppb\n9GAFED075GzUQSm5gatVU4owpEdvcu/1x00yp6nMH6Cg+AFNA/me/v+gMw+O4OY\u003d\n\u003dkzFA\n-----END PGP SIGNATURE-----\n",
+  "comments": []
+}
