@@ -1,0 +1,4 @@
+{
+  "pushCert": "certificate version 0.1\npusher RJ Trujillo \u003ccertifiedblyndguy@gmail.com\u003e 1524441484 -0700\npushee ssh://review.carbonrom.org:29418/CarbonROM/android_packages_apps_Quarks\nnonce 1524441499-0F6C1CD388937D1761C66F811A1A54BC085629FB\n\n0000000000000000000000000000000000000000 c047163063e53e55e09804d3dd94975636a6818f refs/for/cr-6.1/disable-jack\n-----BEGIN PGP SIGNATURE-----\n\niQEcBAABAgAGBQJa3SGMAAoJEPmgJR/9oEk/AYIH/2RreSBjV8NjYiaS3G/HEOZh\nsT9orUNUQCpreieJTaEk6IQvYMvNylA3hQYLzLZ9/KAFIgPEEL4gOG3zurvUQIdC\nvnsxjRKMw6KqMTDY58Q8ZFf/z/SKZkf7UWUAFsarG9sbSUI7GKCpVGJR0D9IPriR\nxZa85xKXRP+NbQQ9bhrEqWJDWi4ScxQVpCfDpeq6SwrncjjEWw4VZw2n+gQGPcEq\ntkoUDwwltQzeh7mSRiyOCAhPW4xcHf++4cpicnY/ld9loItFCnSxqX890bfcR2iw\nrkrqNsW74wpH6U1CNboL58y6nOZhB8ALhisBgymK7DWKTyjbEKpLrlNTk54e384\u003d\n\u003dPMJ7\n-----END PGP SIGNATURE-----\n",
+  "comments": []
+}
