@@ -33,8 +33,7 @@ LOCAL_STATIC_ANDROID_LIBRARIES := \
     android-support-v7-cardview \
     android-support-v7-palette \
     android-support-v7-recyclerview \
-    android-support-annotations \
-    okhttp
+    android-support-annotations
 
 LOCAL_PACKAGE_NAME := Quarks
 
