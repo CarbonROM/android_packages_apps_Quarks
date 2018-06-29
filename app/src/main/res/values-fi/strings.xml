@@ -42,6 +42,9 @@
   <string name="menu_desktop_mode">Vaihda työpöytäsivustoon</string>
   <!-- Menu action: enable phone mode -->
   <string name="menu_mobile_mode">Vaihda mobiilisivustoon</string>
+  <!-- Menu action: enable night mode -->
+  <!-- Menu action: enable day mode -->
+  <!-- Menu action: search in page -->
   <!-- Share webPage: "send to" dialog title -->
   <string name="share_title">Lähetä</string>
   <!-- Dialog action: dismiss -->
@@ -104,6 +107,9 @@
   <!-- Settings: do not track preference summary -->
   <!-- Settings: save form data title -->
   <!-- Settings: suggestions provider title -->
+  <!-- Settings: default to incognito -->
+  <!-- Settings: adblocker title -->
+  <!-- Settings: adblocker summary -->
   <!-- History: title -->
   <string name="history_title">Historia</string>
   <!-- History: empty status text -->
@@ -136,6 +142,7 @@
   <string name="favorite_edit_delete">Poista</string>
   <!-- Favorite: edit dialog: invalid url error message -->
   <string name="favorite_edit_error">Syötä kelvollinen URL-osoite</string>
+  <!-- Launcher shortcuts -->
   <!-- No activity found to open the given url error -->
   <string name="error_no_activity_found">Mikään sovellus ei voi käsitellä linkkiä</string>
   <!-- Auth dialog: title -->
@@ -144,4 +151,6 @@
   <!-- Auth dialog: detail -->
   <!-- Auth dialog: login button -->
   <!-- Launcher shortcut: new incognito tab -->
+  <!-- Suggestions provider: no suggestions provider -->
+  <!-- Search in page: search hint -->
 </resources>

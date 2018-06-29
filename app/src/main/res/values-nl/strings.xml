@@ -40,6 +40,9 @@
   <string name="menu_in_new_tab">Openen in nieuw tabblad</string>
   <!-- Menu action: enable desktop mode -->
   <!-- Menu action: enable phone mode -->
+  <!-- Menu action: enable night mode -->
+  <!-- Menu action: enable day mode -->
+  <!-- Menu action: search in page -->
   <!-- Share webPage: "send to" dialog title -->
   <string name="share_title">Verzenden naar</string>
   <!-- Dialog action: dismiss -->
@@ -91,6 +94,9 @@
   <!-- Settings: do not track preference summary -->
   <!-- Settings: save form data title -->
   <!-- Settings: suggestions provider title -->
+  <!-- Settings: default to incognito -->
+  <!-- Settings: adblocker title -->
+  <!-- Settings: adblocker summary -->
   <!-- History: title -->
   <string name="history_title">Geschiedenis</string>
   <!-- History: empty status text -->
@@ -119,6 +125,7 @@
   <!-- Favorite: edit dialog button that deletes the selected favorite -->
   <string name="favorite_edit_delete">Verwijderen</string>
   <!-- Favorite: edit dialog: invalid url error message -->
+  <!-- Launcher shortcuts -->
   <!-- No activity found to open the given url error -->
   <!-- Auth dialog: title -->
   <!-- Auth dialog: username field -->
@@ -131,4 +138,6 @@
   <string name="auth_dialog_login">Inloggen</string>
   <!-- Launcher shortcut: new incognito tab -->
   <string name="shortcut_new_incognito_tab">Nieuw incognitotabblad</string>
+  <!-- Suggestions provider: no suggestions provider -->
+  <!-- Search in page: search hint -->
 </resources>

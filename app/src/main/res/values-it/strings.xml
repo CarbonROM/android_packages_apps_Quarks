@@ -42,6 +42,9 @@
   <string name="menu_desktop_mode">Passa al sito desktop</string>
   <!-- Menu action: enable phone mode -->
   <string name="menu_mobile_mode">Passa al sito mobile</string>
+  <!-- Menu action: enable night mode -->
+  <!-- Menu action: enable day mode -->
+  <!-- Menu action: search in page -->
   <!-- Share webPage: "send to" dialog title -->
   <string name="share_title">Invia a</string>
   <!-- Dialog action: dismiss -->
@@ -108,6 +111,9 @@
   <string name="pref_save_form_data_title">Salva i dati moduli</string>
   <!-- Settings: suggestions provider title -->
   <string name="pref_suggestions_provider">Provider per suggerimenti</string>
+  <!-- Settings: default to incognito -->
+  <!-- Settings: adblocker title -->
+  <!-- Settings: adblocker summary -->
   <!-- History: title -->
   <string name="history_title">Cronologia</string>
   <!-- History: empty status text -->
@@ -140,6 +146,7 @@
   <string name="favorite_edit_delete">Elimina</string>
   <!-- Favorite: edit dialog: invalid url error message -->
   <string name="favorite_edit_error">Inserisci un URL valido</string>
+  <!-- Launcher shortcuts -->
   <!-- No activity found to open the given url error -->
   <string name="error_no_activity_found">Nessun\'app può aprire questo link</string>
   <!-- Auth dialog: title -->
@@ -154,4 +161,6 @@
   <string name="auth_dialog_login">Accedi</string>
   <!-- Launcher shortcut: new incognito tab -->
   <string name="shortcut_new_incognito_tab">Scheda in incognito</string>
+  <!-- Suggestions provider: no suggestions provider -->
+  <!-- Search in page: search hint -->
 </resources>

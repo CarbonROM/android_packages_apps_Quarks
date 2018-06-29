@@ -42,6 +42,9 @@
   <string name="menu_desktop_mode">Chuyển sang trang web dành cho máy tính để bàn</string>
   <!-- Menu action: enable phone mode -->
   <string name="menu_mobile_mode">Chuyển sang trang web dành cho thiết bị di động</string>
+  <!-- Menu action: enable night mode -->
+  <!-- Menu action: enable day mode -->
+  <!-- Menu action: search in page -->
   <!-- Share webPage: "send to" dialog title -->
   <string name="share_title">Gửi đến</string>
   <!-- Dialog action: dismiss -->
@@ -108,6 +111,9 @@
   <string name="pref_save_form_data_title">Lưu dữ liệu biểu mẫu</string>
   <!-- Settings: suggestions provider title -->
   <string name="pref_suggestions_provider">Nhà cung cấp đề xuất</string>
+  <!-- Settings: default to incognito -->
+  <!-- Settings: adblocker title -->
+  <!-- Settings: adblocker summary -->
   <!-- History: title -->
   <string name="history_title">Lịch sử</string>
   <!-- History: empty status text -->
@@ -140,6 +146,7 @@
   <string name="favorite_edit_delete">Xóa</string>
   <!-- Favorite: edit dialog: invalid url error message -->
   <string name="favorite_edit_error">Chèn một URL hợp lệ</string>
+  <!-- Launcher shortcuts -->
   <!-- No activity found to open the given url error -->
   <string name="error_no_activity_found">Không có ứng dụng có thể xử lý liên kết này</string>
   <!-- Auth dialog: title -->
@@ -154,4 +161,6 @@
   <string name="auth_dialog_login">Đăng nhập</string>
   <!-- Launcher shortcut: new incognito tab -->
   <string name="shortcut_new_incognito_tab">Tab ẩn danh mới</string>
+  <!-- Suggestions provider: no suggestions provider -->
+  <!-- Search in page: search hint -->
 </resources>

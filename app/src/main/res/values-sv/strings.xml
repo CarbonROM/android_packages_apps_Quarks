@@ -30,6 +30,9 @@
   <!-- Menu action: open selected link in a new tab -->
   <!-- Menu action: enable desktop mode -->
   <!-- Menu action: enable phone mode -->
+  <!-- Menu action: enable night mode -->
+  <!-- Menu action: enable day mode -->
+  <!-- Menu action: search in page -->
   <!-- Share webPage: "send to" dialog title -->
   <!-- Dialog action: dismiss -->
   <!-- Download dialog: title -->
@@ -63,6 +66,9 @@
   <!-- Settings: do not track preference summary -->
   <!-- Settings: save form data title -->
   <!-- Settings: suggestions provider title -->
+  <!-- Settings: default to incognito -->
+  <!-- Settings: adblocker title -->
+  <!-- Settings: adblocker summary -->
   <!-- History: title -->
   <!-- History: empty status text -->
   <!-- History: date format for items. EEEE = day (Monday), MMMM = month (January), yyyy = year (1970), HH = hour (12), mm = minutes (30) -->
@@ -79,6 +85,7 @@
   <!-- Favorite: edit dialog positive button that save changes -->
   <!-- Favorite: edit dialog button that deletes the selected favorite -->
   <!-- Favorite: edit dialog: invalid url error message -->
+  <!-- Launcher shortcuts -->
   <!-- No activity found to open the given url error -->
   <!-- Auth dialog: title -->
   <!-- Auth dialog: username field -->
@@ -86,4 +93,6 @@
   <!-- Auth dialog: detail -->
   <!-- Auth dialog: login button -->
   <!-- Launcher shortcut: new incognito tab -->
+  <!-- Suggestions provider: no suggestions provider -->
+  <!-- Search in page: search hint -->
 </resources>

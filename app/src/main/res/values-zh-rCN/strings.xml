@@ -42,6 +42,9 @@
   <string name="menu_desktop_mode">切换到桌面版页面</string>
   <!-- Menu action: enable phone mode -->
   <string name="menu_mobile_mode">切换到手机版页面</string>
+  <!-- Menu action: enable night mode -->
+  <!-- Menu action: enable day mode -->
+  <!-- Menu action: search in page -->
   <!-- Share webPage: "send to" dialog title -->
   <string name="share_title">发送到</string>
   <!-- Dialog action: dismiss -->
@@ -108,6 +111,9 @@
   <string name="pref_save_form_data_title">保存表单数据</string>
   <!-- Settings: suggestions provider title -->
   <string name="pref_suggestions_provider">建议提供商</string>
+  <!-- Settings: default to incognito -->
+  <!-- Settings: adblocker title -->
+  <!-- Settings: adblocker summary -->
   <!-- History: title -->
   <string name="history_title">历史记录</string>
   <!-- History: empty status text -->
@@ -140,6 +146,7 @@
   <string name="favorite_edit_delete">删除</string>
   <!-- Favorite: edit dialog: invalid url error message -->
   <string name="favorite_edit_error">输入一个有效网址</string>
+  <!-- Launcher shortcuts -->
   <!-- No activity found to open the given url error -->
   <string name="error_no_activity_found">没有应用可以处理此链接</string>
   <!-- Auth dialog: title -->
@@ -154,4 +161,6 @@
   <string name="auth_dialog_login">登录</string>
   <!-- Launcher shortcut: new incognito tab -->
   <string name="shortcut_new_incognito_tab">新隐身标签页</string>
+  <!-- Suggestions provider: no suggestions provider -->
+  <!-- Search in page: search hint -->
 </resources>

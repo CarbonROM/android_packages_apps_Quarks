@@ -42,6 +42,9 @@
   <string name="menu_desktop_mode">PC 버전으로 보기</string>
   <!-- Menu action: enable phone mode -->
   <string name="menu_mobile_mode">모바일 버전으로 보기</string>
+  <!-- Menu action: enable night mode -->
+  <!-- Menu action: enable day mode -->
+  <!-- Menu action: search in page -->
   <!-- Share webPage: "send to" dialog title -->
   <string name="share_title">보내기</string>
   <!-- Dialog action: dismiss -->
@@ -108,6 +111,9 @@
   <string name="pref_save_form_data_title">양식 정보 저장</string>
   <!-- Settings: suggestions provider title -->
   <string name="pref_suggestions_provider">제안 공급자</string>
+  <!-- Settings: default to incognito -->
+  <!-- Settings: adblocker title -->
+  <!-- Settings: adblocker summary -->
   <!-- History: title -->
   <string name="history_title">방문 기록</string>
   <!-- History: empty status text -->
@@ -140,6 +146,7 @@
   <string name="favorite_edit_delete">삭제</string>
   <!-- Favorite: edit dialog: invalid url error message -->
   <string name="favorite_edit_error">유효한 URL을 입력하세요.</string>
+  <!-- Launcher shortcuts -->
   <!-- No activity found to open the given url error -->
   <string name="error_no_activity_found">이 링크를 열 수 있는 앱이 없습니다.</string>
   <!-- Auth dialog: title -->
@@ -154,4 +161,6 @@
   <string name="auth_dialog_login">로그인</string>
   <!-- Launcher shortcut: new incognito tab -->
   <string name="shortcut_new_incognito_tab">새 시크릿 탭</string>
+  <!-- Suggestions provider: no suggestions provider -->
+  <!-- Search in page: search hint -->
 </resources>
