@@ -43,8 +43,11 @@
   <!-- Menu action: enable phone mode -->
   <string name="menu_mobile_mode">Przełącz na wersję mobilną strony</string>
   <!-- Menu action: enable night mode -->
+  <string name="menu_night_mode">Przełącz w tryb nocny</string>
   <!-- Menu action: enable day mode -->
+  <string name="menu_day_mode">Przełącz w tryb dzienny</string>
   <!-- Menu action: search in page -->
+  <string name="menu_search">Znajdź na stronie</string>
   <!-- Share webPage: "send to" dialog title -->
   <string name="share_title">Wyślij do</string>
   <!-- Dialog action: dismiss -->
@@ -148,6 +151,9 @@
   <!-- Favorite: edit dialog: invalid url error message -->
   <string name="favorite_edit_error">Podaj prawidłowy adres URL</string>
   <!-- Launcher shortcuts -->
+  <string name="shortcut_incognito">Karta incognito</string>
+  <string name="shortcut_in_new_tab">Nowa karta</string>
+  <string name="shortcut_favorites">Ulubione</string>
   <!-- No activity found to open the given url error -->
   <string name="error_no_activity_found">Brak aplikacji do obsługi tego linku</string>
   <!-- Auth dialog: title -->
@@ -163,5 +169,7 @@
   <!-- Launcher shortcut: new incognito tab -->
   <string name="shortcut_new_incognito_tab">Nowa karta incognito</string>
   <!-- Suggestions provider: no suggestions provider -->
+  <string name="suggestions_provider_none">Brak</string>
   <!-- Search in page: search hint -->
+  <string name="search_bar_hint">Szukaj</string>
 </resources>
