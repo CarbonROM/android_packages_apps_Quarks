@@ -115,8 +115,11 @@
   <!-- Settings: suggestions provider title -->
   <string name="pref_suggestions_provider">Dostawca sugestii</string>
   <!-- Settings: default to incognito -->
+  <string name="pref_incognito_policy">Domyślnie incognito</string>
   <!-- Settings: adblocker title -->
+  <string name="pref_adblocker_title">Adblocker</string>
   <!-- Settings: adblocker summary -->
+  <string name="pref_adblocker_summary">Blokuj reklamy podczas przeglądania internetu</string>
   <!-- History: title -->
   <string name="history_title">Historia</string>
   <!-- History: empty status text -->
@@ -154,6 +157,7 @@
   <string name="shortcut_incognito">Karta incognito</string>
   <string name="shortcut_in_new_tab">Nowa karta</string>
   <string name="shortcut_favorites">Ulubione</string>
+  <string name="shortcut_disabled">Skróty wyłączone</string>
   <!-- No activity found to open the given url error -->
   <string name="error_no_activity_found">Brak aplikacji do obsługi tego linku</string>
   <!-- Auth dialog: title -->

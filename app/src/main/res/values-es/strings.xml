@@ -43,8 +43,10 @@
   <!-- Menu action: enable phone mode -->
   <string name="menu_mobile_mode">Cambiar a la versión móvil</string>
   <!-- Menu action: enable night mode -->
+  <string name="menu_night_mode">Cambiar a Modo Nocturno</string>
   <!-- Menu action: enable day mode -->
   <!-- Menu action: search in page -->
+  <string name="menu_search">Buscar en esta página</string>
   <!-- Share webPage: "send to" dialog title -->
   <string name="share_title">Enviar a</string>
   <!-- Dialog action: dismiss -->

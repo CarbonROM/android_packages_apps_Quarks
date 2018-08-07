@@ -43,8 +43,11 @@
   <!-- Menu action: enable phone mode -->
   <string name="menu_mobile_mode">Preklopi na mob. stran</string>
   <!-- Menu action: enable night mode -->
+  <string name="menu_night_mode">Preklopi na nočni način</string>
   <!-- Menu action: enable day mode -->
+  <string name="menu_day_mode">Preklopi na dnevni način</string>
   <!-- Menu action: search in page -->
+  <string name="menu_search">Najdi na strani</string>
   <!-- Share webPage: "send to" dialog title -->
   <string name="share_title">Pošlji</string>
   <!-- Dialog action: dismiss -->
@@ -104,13 +107,19 @@
   <!-- Settings: clear cookie toast confirmation -->
   <string name="pref_cookie_clear_done">Vsi piškotki počiščeni</string>
   <!-- Settings: do not track preference title -->
+  <string name="pref_do_not_track_title">Do Not Track</string>
   <!-- Settings: do not track preference summary -->
+  <string name="pref_do_not_track_summary">Pošlji zahtevo Do Not Track obiskanim stranem</string>
   <!-- Settings: save form data title -->
   <string name="pref_save_form_data_title">Shrani iz podatkov</string>
   <!-- Settings: suggestions provider title -->
+  <string name="pref_suggestions_provider">Ponudnik predlogov</string>
   <!-- Settings: default to incognito -->
+  <string name="pref_incognito_policy">Privzeto brez belež. zgod.</string>
   <!-- Settings: adblocker title -->
+  <string name="pref_adblocker_title">Blokiranje oglasov</string>
   <!-- Settings: adblocker summary -->
+  <string name="pref_adblocker_summary">Blokiraj oglase med brskanjem</string>
   <!-- History: title -->
   <string name="history_title">Zgodovina</string>
   <!-- History: empty status text -->
@@ -144,6 +153,10 @@
   <!-- Favorite: edit dialog: invalid url error message -->
   <string name="favorite_edit_error">Vstavite veljaven URL</string>
   <!-- Launcher shortcuts -->
+  <string name="shortcut_incognito">Zavihek brez belež. zgod.</string>
+  <string name="shortcut_in_new_tab">Nov zavihek</string>
+  <string name="shortcut_favorites">Zaznamki</string>
+  <string name="shortcut_disabled">Bližnjice onemogočene</string>
   <!-- No activity found to open the given url error -->
   <string name="error_no_activity_found">Nobena aplikacija ne more obravnavati te povezave</string>
   <!-- Auth dialog: title -->
@@ -157,6 +170,9 @@
   <!-- Auth dialog: login button -->
   <string name="auth_dialog_login">Prijava</string>
   <!-- Launcher shortcut: new incognito tab -->
+  <string name="shortcut_new_incognito_tab">Nov zavihek brez belež. zgod.</string>
   <!-- Suggestions provider: no suggestions provider -->
+  <string name="suggestions_provider_none">Brez</string>
   <!-- Search in page: search hint -->
+  <string name="search_bar_hint">Išči</string>
 </resources>

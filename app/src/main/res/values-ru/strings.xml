@@ -115,6 +115,7 @@
   <!-- Settings: adblocker title -->
   <string name="pref_adblocker_title">Блокировщик рекламы</string>
   <!-- Settings: adblocker summary -->
+  <string name="pref_adblocker_summary">Блокировка рекламы в браузере</string>
   <!-- History: title -->
   <string name="history_title">История</string>
   <!-- History: empty status text -->
@@ -151,6 +152,7 @@
   <string name="shortcut_incognito">Новая вкладка инкогнито</string>
   <string name="shortcut_in_new_tab">Новая вкладка</string>
   <string name="shortcut_favorites">Закладки</string>
+  <string name="shortcut_disabled">Ярлыки отключены</string>
   <!-- No activity found to open the given url error -->
   <string name="error_no_activity_found">Нет приложения для этой ссылки</string>
   <!-- Auth dialog: title -->
@@ -166,6 +168,7 @@
   <!-- Launcher shortcut: new incognito tab -->
   <string name="shortcut_new_incognito_tab">Новая вкладка (инкогнито)</string>
   <!-- Suggestions provider: no suggestions provider -->
+  <string name="suggestions_provider_none">Нет</string>
   <!-- Search in page: search hint -->
   <string name="search_bar_hint">Поиск</string>
 </resources>

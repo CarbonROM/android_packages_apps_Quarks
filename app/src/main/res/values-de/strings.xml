@@ -43,8 +43,11 @@
   <!-- Menu action: enable phone mode -->
   <string name="menu_mobile_mode">Auf mobile Website umschalten</string>
   <!-- Menu action: enable night mode -->
+  <string name="menu_night_mode">In den Tagmodus wechseln</string>
   <!-- Menu action: enable day mode -->
+  <string name="menu_day_mode">Zum Gemütlichkeitsmodus wechseln</string>
   <!-- Menu action: search in page -->
+  <string name="menu_search">Auf Seite suchen</string>
   <!-- Share webPage: "send to" dialog title -->
   <string name="share_title">Senden an</string>
   <!-- Dialog action: dismiss -->
@@ -104,13 +107,19 @@
   <!-- Settings: clear cookie toast confirmation -->
   <string name="pref_cookie_clear_done">Alle Cookies gelöscht</string>
   <!-- Settings: do not track preference title -->
+  <string name="pref_do_not_track_title">Do Not Track</string>
   <!-- Settings: do not track preference summary -->
+  <string name="pref_do_not_track_summary">\"Nicht verfolgen\" (Do Not Track) an die von Ihnen besuchten Websites senden</string>
   <!-- Settings: save form data title -->
   <string name="pref_save_form_data_title">Formulardaten speichern</string>
   <!-- Settings: suggestions provider title -->
+  <string name="pref_suggestions_provider">Quelle für (Auto)Vorschläge</string>
   <!-- Settings: default to incognito -->
+  <string name="pref_incognito_policy">Inkognito als Standard</string>
   <!-- Settings: adblocker title -->
+  <string name="pref_adblocker_title">Werbe-Blocker</string>
   <!-- Settings: adblocker summary -->
+  <string name="pref_adblocker_summary">Blockieren von Werbung während des Surfens</string>
   <!-- History: title -->
   <string name="history_title">Verlauf</string>
   <!-- History: empty status text -->
@@ -144,6 +153,10 @@
   <!-- Favorite: edit dialog: invalid url error message -->
   <string name="favorite_edit_error">Geben Sie eine gültige URL ein</string>
   <!-- Launcher shortcuts -->
+  <string name="shortcut_incognito">Privater Tab</string>
+  <string name="shortcut_in_new_tab">Neuer Tab</string>
+  <string name="shortcut_favorites">Favoriten/Lesezeichen</string>
+  <string name="shortcut_disabled">Verknüpfungen deaktiviert</string>
   <!-- No activity found to open the given url error -->
   <string name="error_no_activity_found">Keine App zum Öffnen der URL gefunden</string>
   <!-- Auth dialog: title -->
@@ -159,5 +172,7 @@
   <!-- Launcher shortcut: new incognito tab -->
   <string name="shortcut_new_incognito_tab">Neuer Inkognito-Tab</string>
   <!-- Suggestions provider: no suggestions provider -->
+  <string name="suggestions_provider_none">Kein Eintrag</string>
   <!-- Search in page: search hint -->
+  <string name="search_bar_hint">Suchen</string>
 </resources>
