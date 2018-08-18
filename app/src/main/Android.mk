@@ -46,6 +46,7 @@ LOCAL_STATIC_JAVA_LIBRARIES += \
 
 LOCAL_PACKAGE_NAME := Quarks
 
+LOCAL_SDK_VERSION := current
 LOCAL_PROGUARD_FLAG_FILES := ../../proguard-rules.pro
 
 include $(BUILD_PACKAGE)
