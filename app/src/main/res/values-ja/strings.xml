@@ -105,7 +105,7 @@
   <!-- Settings: clear cookie -->
   <string name="pref_cookie_clear">Cookie を消去</string>
   <!-- Settings: clear cookie toast confirmation -->
-  <string name="pref_cookie_clear_done">すべての Cookie を消去しました</string>
+  <string name="pref_cookie_clear_done">全ての Cookie を消去しました</string>
   <!-- Settings: do not track preference title -->
   <string name="pref_do_not_track_title">追跡しない（Do Not Track）</string>
   <!-- Settings: do not track preference summary -->
@@ -129,7 +129,7 @@
   <!-- History: delete history dialog title -->
   <string name="history_delete_title">履歴を消去</string>
   <!-- History: delete history dialog warning message -->
-  <string name="history_delete_message">すべての履歴を消去しようとしています。この操作は元に戻せません。本当に実行しますか？</string>
+  <string name="history_delete_message">全ての履歴を消去しようとしています。この操作は元に戻せません。本当に実行しますか？</string>
   <!-- History: delete history dialog button that erases all the history -->
   <string name="history_delete_positive">消去</string>
   <!-- History: delete history "working" dialog-->

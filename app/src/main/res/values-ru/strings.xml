@@ -107,9 +107,13 @@
   <!-- Settings: clear cookie toast confirmation -->
   <string name="pref_cookie_clear_done">Cookie удалены</string>
   <!-- Settings: do not track preference title -->
+  <string name="pref_do_not_track_title">Не отслеживать</string>
   <!-- Settings: do not track preference summary -->
+  <string name="pref_do_not_track_summary">Отправлять сайтам запрос \"Не отслеживать\"</string>
   <!-- Settings: save form data title -->
+  <string name="pref_save_form_data_title">Сохранять данные форм</string>
   <!-- Settings: suggestions provider title -->
+  <string name="pref_suggestions_provider">Поисковые подсказки</string>
   <!-- Settings: default to incognito -->
   <string name="pref_incognito_policy">По умолчанию в режиме инкогнито</string>
   <!-- Settings: adblocker title -->
