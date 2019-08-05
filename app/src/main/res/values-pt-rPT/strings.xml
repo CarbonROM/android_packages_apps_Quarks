@@ -43,8 +43,11 @@
     <!-- Menu action: enable phone mode -->
     <string name="menu_mobile_mode">Mudar para a versão móvel</string>
     <!-- Menu action: enable night mode -->
+    <string name="menu_night_mode">Mudar para modo noturno</string>
     <!-- Menu action: enable day mode -->
+    <string name="menu_day_mode">Mudar para modo diurno</string>
     <!-- Menu action: search in page -->
+    <string name="menu_search">Encontrar na página</string>
     <!-- Share webPage: "send to" dialog title -->
     <string name="share_title">Enviar para</string>
     <!-- Dialog action: dismiss -->
@@ -110,9 +113,13 @@
     <!-- Settings: save form data title -->
     <string name="pref_save_form_data_title">Guardar dados do formulário</string>
     <!-- Settings: suggestions provider title -->
+    <string name="pref_suggestions_provider">Provedor de sugestões</string>
     <!-- Settings: default to incognito -->
+    <string name="pref_incognito_policy">Anônimo como predefinição</string>
     <!-- Settings: adblocker title -->
+    <string name="pref_adblocker_title">Bloqueador de anúncios</string>
     <!-- Settings: adblocker summary -->
+    <string name="pref_adblocker_summary">Bloquear anúncios enquanto a navegar</string>
     <!-- History: title -->
     <string name="history_title">Histórico</string>
     <!-- History: empty status text -->
@@ -146,6 +153,10 @@
     <!-- Favorite: edit dialog: invalid url error message -->
     <string name="favorite_edit_error">Insira um URL válido</string>
     <!-- Launcher shortcuts -->
+    <string name="shortcut_incognito">Separador privado</string>
+    <string name="shortcut_in_new_tab">Novo separador</string>
+    <string name="shortcut_favorites">Favoritos</string>
+    <string name="shortcut_disabled">Atalhos desativos</string>
     <!-- No activity found to open the given url error -->
     <string name="error_no_activity_found">Não tem aplicações que possam abrir a ligação</string>
     <!-- Auth dialog: title -->
@@ -161,5 +172,7 @@
     <!-- Launcher shortcut: new incognito tab -->
     <string name="shortcut_new_incognito_tab">Novo separador privado</string>
     <!-- Suggestions provider: no suggestions provider -->
+    <string name="suggestions_provider_none">Nenhum</string>
     <!-- Search in page: search hint -->
+    <string name="search_bar_hint">Pesquisar</string>
 </resources>
